@@ -14,8 +14,8 @@ namespace ClassOOP.N_2_Train
 			Console.WriteLine("Инфомация о запрашиваемом поезде (0-остановить) ");
 			TrainInformation(trains);
 			Console.WriteLine("Упорядочить по по пункту назначения ");
-            SortByTrainDestinationName(trains);
-		    TrainPrintContent(trains);
+			SortByTrainDestinationName(trains);
+			TrainPrintContent(trains);
 
 			// var g = trains[1].TimeLeave.ToShortTimeString();
 		}
@@ -72,16 +72,16 @@ namespace ClassOOP.N_2_Train
 					var train2 = trains[j + 1];
 					var trainDestinationName2 = train2.DestinationName;
 					var isFirstName = string.Compare(trainDestinationName1, trainDestinationName2); // <0 < то a<b;0- то a=b, или length =0;>0 - то a>b.
-					if (isFirstName > 0) 
+					if (isFirstName > 0)
 					{
 						trains[j] = train2;
 						trains[j + 1] = train1;
 					}
+
 					if (isFirstName == 0)
 					{
 						SortByTimeLeave(trains, train1, train2, j);
 					}
-					
 				}
 			}
 		}

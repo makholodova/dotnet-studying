@@ -1,7 +1,7 @@
 namespace ClassOOP
 {
-    public interface IEntryPoint
-    {
-        void Start();
-    }
+	public interface IEntryPoint
+	{
+		void Start();
+	}
 }

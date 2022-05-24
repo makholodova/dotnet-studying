@@ -1,63 +1,37 @@
-#ignore thumbnails created by windows
-Thumbs.db
-
-#Ignore files build by Visual Studio
-*.orig
-*.obj
-*.user
-*.aps
-*.pch
-*.vspscc
-*_i.c
-*_p.c
-*.ncb
-*.suo
-*.tlb
-*.tlh
-*.bak
-*.cache
-*.ilk
-*.log
-[Bb]in
-[Cc]sx
+# Build results
 [Dd]ebug/
-*.sbr
-obj/
-#[Rr]elease*/
+[Dd]ebugPublic/
+[Rr]elease/
+[Rr]eleases/
+x64/
+x86/
+build/
+bld/
+[Bb]in/
+[Oo]bj/
+[Oo]ut/
+msbuild.log
+msbuild.err
+msbuild.wrn
+
+# User-specific files
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Editors
 _ReSharper*/
-_TeamCity*/
 [Tt]est[Rr]esult*
 *.ReSharper
 .vs/
 .vscode/
 .idea/
-*.docstates
-_rltm*
-*.GhostDoc.xml
-.fseventsd
 .DS_Store
-dsl-0.1.0-4815a02.uber.jar
-tools/mongodb/
 
-#Ignore common build files
-build/*
-log
-deployment
+# Visual studio profiling
+*.vsp
+*.psess
 
-#Ignore lmdb database files created by tests
-test-db
-
-#Exceptions
-!ReleaseNotes/
-!Src/SkuVault.Messages2/Bin
-!Src/SkuVault.Modules.WavePicking/Scenarios/Bins/Commands/Bin
-
-#ignore various stats
-.*.tsv
-*.orig
-
-
-*.sh -lf
-distrib
-
-launchSettings.json
+# Data from docker
+docker/*/data/

@@ -7,9 +7,11 @@ namespace ClassOOP.N_5_Constructor
 	public class Name : IDisposable
 	{
 		private string _fullName; //field (поле)
+		public string FirstName { get; private set; } //immutable property (неизменяемый)
+		public string LastName { get; private set; }
 
 		/// <summary>
-		///     Конструктор по умолчанию (default constructor)
+		/// Конструктор по умолчанию (default constructor)
 		/// </summary>
 		public Name()
 		{
@@ -24,9 +26,6 @@ namespace ClassOOP.N_5_Constructor
 			LastName = lastName;
 			_fullName = FirstName + " " + LastName;
 		}
-
-		public string FirstName { get; private set; } //immutable property (неизменяемый)
-		public string LastName { get; private set; }
 
 		public void ChangeName(string firstName, string lastName)
 		{
@@ -44,7 +43,7 @@ namespace ClassOOP.N_5_Constructor
 		{
 			Console.WriteLine("Print " + _fullName);
 		}
-		
+
 		// вызывается для очистки ресурсов когда используешь using(){}
 		public void Dispose()
 		{

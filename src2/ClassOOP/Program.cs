@@ -5,17 +5,17 @@ using ClassOOP.Student;
 
 namespace ClassOOP
 {
-    internal class Program
-    {
-        public static void Main(string[] args)
-        {
-            IEntryPoint entryPoint;
+	internal class Program
+	{
+		public static void Main(string[] args)
+		{
+			IEntryPoint entryPoint;
 
-           // entryPoint = new StudentEntryPoint();
-          //entryPoint = new TrainEntryPoint();
-         //entryPoint = new NumEntryPoint();
-         entryPoint = new NameEntryPoint();
-            entryPoint.Start();
-        }
-    }
+			// entryPoint = new StudentEntryPoint();
+			//entryPoint = new TrainEntryPoint();
+			//entryPoint = new NumEntryPoint();
+			entryPoint = new NameEntryPoint();
+			entryPoint.Start();
+		}
+	}
 }
