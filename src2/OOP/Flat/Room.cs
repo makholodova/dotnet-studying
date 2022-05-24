@@ -16,10 +16,7 @@ namespace OOP.Flat
         {
             Console.WriteLine($"Название комнты {Name}, тип комнаты {TypeOfRoom}, площадью {Area}(м2)," +
                               $" количество окон {WindowsCount}, количество дверей {DoorsCount}");
-            foreach (var furniture in Furnitures)
-            {
-                furniture.PrintContent();
-            }
+            foreach (var furniture in Furnitures) furniture.PrintContent();
         }
     }
 }

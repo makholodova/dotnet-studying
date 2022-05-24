@@ -1,6 +1,4 @@
-﻿using System.Transactions;
-
-namespace OOP.Flat
+﻿namespace OOP.Flat
 {
     public static class FlatBuilder
     {
@@ -20,7 +18,7 @@ namespace OOP.Flat
 
         private static Room[] GetRooms()
         {
-            var room1 = new Room()
+            var room1 = new Room
             {
                 Name = "Ванна",
                 TypeOfRoom = TypeOfRoom.Bathroom,
@@ -57,7 +55,7 @@ namespace OOP.Flat
                 Furnitures = GetFurnituresHall()
             };
 
-            var rooms = new[] { room1, room2, room3, room4 };
+            var rooms = new[] {room1, room2, room3, room4};
             return rooms;
         }
 
@@ -83,7 +81,7 @@ namespace OOP.Flat
                 }
             };
 
-            var furnitures = new[] { furniture1, furniture2 };
+            var furnitures = new[] {furniture1, furniture2};
             return furnitures;
         }
 
@@ -126,33 +124,33 @@ namespace OOP.Flat
                 }
             };
 
-            var furnitures = new[] { furniture1, furniture2, furniture3 };
+            var furnitures = new[] {furniture1, furniture2, furniture3};
             return furnitures;
         }
 
         private static Furniture[] GetFurnituresBathroom()
         {
-            var furniture1 = new Furniture()
+            var furniture1 = new Furniture
             {
                 TypeOfFurniture = TypeOfFurniture.Bath,
                 Number = 1,
-                Size = new Size()
+                Size = new Size
                 {
                     Length = 1.5,
                     Wight = 0.6
                 },
                 Color = Color.White
             };
-            var furniture2 = new Furniture()
+            var furniture2 = new Furniture
             {
                 TypeOfFurniture = TypeOfFurniture.Toilet
             };
-            var furniture3 = new Furniture()
+            var furniture3 = new Furniture
             {
                 TypeOfFurniture = TypeOfFurniture.Mirror
             };
 
-            var furnitures = new[] { furniture1, furniture2, furniture3 };
+            var furnitures = new[] {furniture1, furniture2, furniture3};
             return furnitures;
         }
 
@@ -190,7 +188,7 @@ namespace OOP.Flat
                 }
             };
 
-            var furnitures = new[] { furniture1, furniture2, furniture3 };
+            var furnitures = new[] {furniture1, furniture2, furniture3};
             return furnitures;
         }
     }

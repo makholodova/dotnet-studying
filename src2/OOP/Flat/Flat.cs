@@ -16,10 +16,7 @@ namespace OOP.Flat
             Console.WriteLine($"Квартира на {Floor} этаже, номер {Number}, площадью {Area}(м2)," +
                               $" количество комнат {Rooms.Length}");
 
-            foreach (var room in Rooms)
-            {
-                room.PrintContent();
-            }
+            foreach (var room in Rooms) room.PrintContent();
         }
     }
 }

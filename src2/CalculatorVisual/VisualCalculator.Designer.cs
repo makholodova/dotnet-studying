@@ -48,6 +48,7 @@ partial class VisualCalculator
             this.division = new System.Windows.Forms.Button();
             this.multiplication = new System.Windows.Forms.Button();
             this.subtraction = new System.Windows.Forms.Button();
+            this.point = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // calc
@@ -194,10 +195,19 @@ partial class VisualCalculator
             this.subtraction.UseVisualStyleBackColor = true;
             this.subtraction.Click += new System.EventHandler(this.sign_Click);
             // 
+            // point
+            // 
+            resources.ApplyResources(this.point, "point");
+            this.point.ForeColor = System.Drawing.Color.Black;
+            this.point.Name = "point";
+            this.point.UseVisualStyleBackColor = true;
+            this.point.Click += new System.EventHandler(this.point_Click);
+            // 
             // VisualCalculator
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.point);
             this.Controls.Add(this.subtraction);
             this.Controls.Add(this.multiplication);
             this.Controls.Add(this.division);
@@ -245,4 +255,5 @@ partial class VisualCalculator
     private Button division;
     private Button multiplication;
     private Button subtraction;
+    private Button point;
 }

@@ -10,20 +10,14 @@ namespace Calculator
             {
                 Console.WriteLine("Продолжить? true or false");
                 var str = Console.ReadLine();
-                if (str == null)
-                {
-                    continue;
-                }
+                if (str == null) continue;
 
                 var isParsed = bool.TryParse(str, out var shouldContinue);
                 //isParsed-возвращает true or false  в значение
                 //распарсил или нет;
                 //var shouldContinue - присваивает true or false в
                 //зависимости от введенной str;
-                if (!isParsed)
-                {
-                    continue;
-                }
+                if (!isParsed) continue;
 
                 return shouldContinue;
             }
@@ -35,16 +29,10 @@ namespace Calculator
             {
                 Console.WriteLine("Введите значение");
                 var numStr = Console.ReadLine();
-                if (numStr == null)
-                {
-                    continue;
-                }
+                if (numStr == null) continue;
 
                 var isParsed = double.TryParse(numStr, out var num);
-                if (!isParsed)
-                {
-                    continue;
-                }
+                if (!isParsed) continue;
 
                 return num;
             }
@@ -56,20 +44,13 @@ namespace Calculator
             {
                 Console.WriteLine("Введите оператор");
                 var str = Console.ReadLine();
-                if (str.Length > 1)
-                {
-                    continue;
-                }
+                if (str.Length > 1) continue;
 
-                char sign = str[0];
+                var sign = str[0];
                 var operators = "-+*/";
-                for (int i = 0; i < operators.Length; i++)
-                {
+                for (var i = 0; i < operators.Length; i++)
                     if (sign == operators[i])
-                    {
                         return sign;
-                    }
-                }
             }
         }
 

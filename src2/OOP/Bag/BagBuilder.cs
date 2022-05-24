@@ -4,9 +4,11 @@
     {
         public static Bag Build()
         {
+            // инициализация статических полей
             Bag.SlingsCount = 2;
             Bag.PrintStaticContent();
 
+            // работа с нестатическими полями/свойствами
             var bag = new Bag();
             bag.Volume = 40;
             bag.PocketsCount = 3;
@@ -31,21 +33,21 @@
 
         private static Book[] GetBooks()
         {
-            var book1 = new Book()
+            var book1 = new Book
             {
                 Name = "букварь",
                 PageCount = 50,
-                Size = new Size()
+                Size = new Size
                 {
                     Height = 30,
                     Wight = 40
                 }
             };
-            var book2 = new Book()
+            var book2 = new Book
             {
                 Name = "русский",
                 PageCount = 100,
-                Size = new Size()
+                Size = new Size
                 {
                     Height = 35,
                     Wight = 45
@@ -57,7 +59,7 @@
             return books;
         }
 
-        static Pen[] GetPens()
+        private static Pen[] GetPens()
         {
             var pen1 = new Pen
             {
@@ -75,12 +77,12 @@
                 Color = Color.Red,
                 Length = 15
             };
-            var pens = new[] { pen1, pen2, pen3 };
+            var pens = new[] {pen1, pen2, pen3};
 
             return pens;
         }
 
-        static Pencil[] GetPencil()
+        private static Pencil[] GetPencil()
         {
             var pencil1 = new Pencil
             {
@@ -108,11 +110,11 @@
                 Length = 7
             };
 
-            var pencils = new[] { pencil1, pencil2, pencil3, pencil4, pencil5 };
+            var pencils = new[] {pencil1, pencil2, pencil3, pencil4, pencil5};
             return pencils;
         }
 
-        static Notebook[] GetNotebooks()
+        private static Notebook[] GetNotebooks()
         {
             var notebook1 = new Notebook
             {
@@ -138,7 +140,7 @@
             };
 
 
-            var notebooks = new[] { notebook1, notebook2 };
+            var notebooks = new[] {notebook1, notebook2};
             return notebooks;
         }
     }
