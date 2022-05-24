@@ -44,6 +44,8 @@
         <Compile Include="IEntryPoint.cs" />
         <Compile Include="N_3\Number.cs" />
         <Compile Include="N_3\NumEntryPoint.cs" />
+        <Compile Include="N_5_Constructor\Name.cs" />
+        <Compile Include="N_5_Constructor\NameEntryPoint.cs" />
         <Compile Include="Program.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
         <Compile Include="Student\StudentEntryPoint.cs" />

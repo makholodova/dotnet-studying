@@ -20,7 +20,8 @@ namespace ClassOOP.Student
 
         public bool FindGoodMark()
         {
-            var good = true;
+            bool good; //декларация (объявление)
+            good = true; //инициализация (конкретное значение)
             for (var j = 0; j < 5; j++)
                 if (Performances[j] < 4)
                 {

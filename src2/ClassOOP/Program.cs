@@ -1,5 +1,6 @@
 ﻿using ClassOOP.N_2_Train;
 using ClassOOP.N_3;
+using ClassOOP.N_5_Constructor;
 using ClassOOP.Student;
 
 namespace ClassOOP
@@ -12,7 +13,8 @@ namespace ClassOOP
 
            // entryPoint = new StudentEntryPoint();
           //entryPoint = new TrainEntryPoint();
-         entryPoint = new NumEntryPoint();
+         //entryPoint = new NumEntryPoint();
+         entryPoint = new NameEntryPoint();
             entryPoint.Start();
         }
     }
