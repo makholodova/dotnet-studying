@@ -56,70 +56,70 @@ namespace ClassOOP.Student
 			{
 				SurnameAndInitials = "Иванов В.И",
 				NumberGroup = 202001,
-				Grade = new[]
+				Grades = new[]
 					{3, 3, 2, 4, 5}
 			};
 			students[1] = new Student
 			{
 				SurnameAndInitials = "Петров Р.П",
 				NumberGroup = 202001,
-				Grade = new[]
+				Grades = new[]
 					{5, 4, 4, 4, 5}
 			};
 			students[2] = new Student
 			{
 				SurnameAndInitials = "Ткаченко В.Н",
 				NumberGroup = 202002,
-				Grade = new[]
+				Grades = new[]
 					{5, 4, 5, 5, 5}
 			};
 			students[3] = new Student
 			{
 				SurnameAndInitials = "Холодов Р.Д",
 				NumberGroup = 202003,
-				Grade = new[]
+				Grades = new[]
 					{5, 5, 5, 5, 5}
 			};
 			students[4] = new Student
 			{
 				SurnameAndInitials = "Семенов А.П",
 				NumberGroup = 202001,
-				Grade = new[]
+				Grades = new[]
 					{3, 4, 2, 3, 3}
 			};
 			students[5] = new Student
 			{
 				SurnameAndInitials = "Дудко В.С",
 				NumberGroup = 202003,
-				Grade = new[]
+				Grades = new[]
 					{5, 4, 3, 3, 3}
 			};
 			students[6] = new Student
 			{
 				SurnameAndInitials = "Гейко Т.И",
 				NumberGroup = 202002,
-				Grade = new[]
+				Grades = new[]
 					{5, 3, 4, 4, 5}
 			};
 			students[7] = new Student
 			{
 				SurnameAndInitials = "Морозов Н.У",
 				NumberGroup = 202003,
-				Grade = new[]
+				Grades = new[]
 					{3, 4, 5, 5, 4}
 			};
 			students[8] = new Student
 			{
 				SurnameAndInitials = "Николаев Н.Б",
 				NumberGroup = 202002,
-				Grade = new[]
+				Grades = new[]
 					{4, 4, 3, 3, 5}
 			};
 			students[9] = new Student
 			{
 				SurnameAndInitials = "Кудрин Ф.М",
 				NumberGroup = 202001,
-				Grade = new[]
+				Grades = new[]
 					{5, 4, 4, 5, 5}
 			};
 		}
