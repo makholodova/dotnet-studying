@@ -42,8 +42,8 @@
         <Compile Include="N_2_Train\Train.cs" />
         <Compile Include="N_2_Train\TrainEntryPoint.cs" />
         <Compile Include="IEntryPoint.cs" />
-        <Compile Include="N_3\Number.cs" />
-        <Compile Include="N_3\NumEntryPoint.cs" />
+        <Compile Include="N_3\Calculator.cs" />
+        <Compile Include="N_3\CalculatorEntryPoint.cs" />
         <Compile Include="N_5_Constructor\Name.cs" />
         <Compile Include="N_5_Constructor\NameEntryPoint.cs" />
         <Compile Include="Program.cs" />
