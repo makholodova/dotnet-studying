@@ -7,15 +7,15 @@ namespace ClassOOP.N_2_Train
 		public void Start()
 		{
 			var trains = CreateTrains();
-			TrainPrintContent(trains);
+			PrintTrainContent(trains);
 			Console.WriteLine("Упорядочить по номерам поездов ");
 			SortByTrainNumber(trains);
-			TrainPrintContent(trains);
+			PrintTrainContent(trains);
 			Console.WriteLine("Инфомация о запрашиваемом поезде (0-остановить) ");
 			TrainInformation(trains);
 			Console.WriteLine("Упорядочить по по пункту назначения ");
 			SortByTrainDestinationName(trains);
-			TrainPrintContent(trains);
+			PrintTrainContent(trains);
 
 			// var g = trains[1].TimeLeave.ToShortTimeString();
 		}
@@ -71,7 +71,7 @@ namespace ClassOOP.N_2_Train
 					var trainDestinationName1 = train1.DestinationName;
 					var train2 = trains[j + 1];
 					var trainDestinationName2 = train2.DestinationName;
-					var isFirstName = string.Compare(trainDestinationName1, trainDestinationName2); // <0 < то a<b;0- то a=b, или length =0;>0 - то a>b.
+					var isFirstName = string.Compare(trainDestinationName1, trainDestinationName2); // <0 - то a<b;0- то a=b, или length =0;>0 - то a>b.
 					if (isFirstName > 0)
 					{
 						trains[j] = train2;
@@ -90,15 +90,15 @@ namespace ClassOOP.N_2_Train
 		{
 			var trainTimeLeave1 = train1.TimeLeave;
 			var trainTimeLeave2 = train2.TimeLeave;
-			var isFirstTime = DateTime.Compare(trainTimeLeave1, trainTimeLeave2);
-			if (isFirstTime > 0)
+			//var isFirstTime = DateTime.Compare(trainTimeLeave1, trainTimeLeave2);
+			if (trainTimeLeave1 > trainTimeLeave2)
 			{
 				trains[j] = train2;
 				trains[j + 1] = train1;
 			}
 		}
 
-		private static void TrainPrintContent(Train[] trains)
+		private static void PrintTrainContent(Train[] trains)
 		{
 			for (var i = 0; i < trains.Length; i++)
 			{

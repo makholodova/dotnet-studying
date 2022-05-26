@@ -6,48 +6,43 @@ namespace ClassOOP.Student
 	{
 		public string SurnameAndInitials;
 		public int NumberGroup;
-		public int[] Performances;
-		public decimal AverageMark;
+		public int[] Grade;
+		public decimal AverageGrade;
 
-		public void CalculateTheAverageMark()
+		public void CalculateTheAverageGrade()
 		{
 			var sum = 0;
-			for (var i = 0; i < Performances.Length; i++)
+			for (var i = 0; i < Grade.Length; i++)
 			{
-				sum += Performances[i];
+				sum += Grade[i];
 			}
 
-			AverageMark = Math.Round(sum / (decimal)Performances.Length); ////округления?
+			AverageGrade = Math.Round(sum / (decimal) Grade.Length); ////округления?
 		}
 
-		// public void SortByAverageMark(){}
-
-		public bool FindGoodMark()
+		public bool HaveGoodGradesOnly()
 		{
-			bool good; //декларация (объявление)
-			good = true; //инициализация (конкретное значение)
 			for (var j = 0; j < 5; j++)
 			{
-				if (Performances[j] < 4)
+				if (Grade[j] < 4)
 				{
-					good = false;
-					break;
+					return false;
 				}
 			}
 
-			return good;
+			return true;
 		}
 
 		public void PrintContent()
 		{
 			Console.Write($"ФИО: {SurnameAndInitials}, номер группы: {NumberGroup}, " + "успеваемость: ");
 
-			for (var i = 0; i < Performances.Length; i++)
+			for (var i = 0; i < Grade.Length; i++)
 			{
-				Console.Write($"{Performances[i]},");
+				Console.Write($"{Grade[i]},");
 			}
 
-			Console.WriteLine($" Средний балл: {AverageMark}");
+			Console.WriteLine($" Средний балл: {AverageGrade}");
 		}
 	}
 }
