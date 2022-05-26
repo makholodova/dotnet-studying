@@ -2,37 +2,43 @@
 
 namespace OOP.Bag
 {
-    public class Bag
-    {
-        public Color Color { get; set; }
-        public int Volume { get; set; }
-        public int PocketsCount { get; set; }
-        public Book[] Books { get; set; }
-        public Pen[] Pens { get; set; }
-        public Pencil[] Pencils { get; set; }
-        public Notebook[] Notebooks { get; set; }
+	public class Bag
+	{
+		public int ThisIsField;
+		public int ThisIsProperty { get; set; }
 
-        public static int SlingsCount { get; set; }
+		public Color Color { get; set; }
+		public int Volume { get; set; }
+		public int PocketsCount { get; set; }
+		public Book[] Books { get; set; }
+		public Pen[] Pens { get; set; }
+		public Pencil[] Pencils { get; set; }
+		public Notebook[] Notebooks { get; set; }
 
-        private int ChangesCount { get; set; }
+		public static int SlingsCount { get; set; } // значение шарится между всеми экземплярами Bag
 
-        public void ChangeVolumeAndPocketsCount(int volume, int pocketsCount)
-        {
-            Volume = volume;
-            PocketsCount = pocketsCount;
-            ChangesCount++;
-        }
+		private int ChangesCount { get; set; }
 
-        public void PrintContent()
-        {
-            Console.WriteLine($"[Changes:{ChangesCount}] Рюкзак цвета {Color}, объемом {Volume}, " +
-                              $"с числом отделов {PocketsCount} содержит {Books.Length} книг, " +
-                              $"{Notebooks.Length} тетрадей(и), {Pens.Length} ручек(ки) и {Pencils.Length} карандашей");
-        }
+		public void ChangeVolumeAndPocketsCount(int volume, int pocketsCount)
+		{
+			Volume = volume;
+			PocketsCount = pocketsCount;
+			ChangesCount++;
+		}
 
+		public void PrintContent()
+		{
+			Console.WriteLine($"[Changes:{ChangesCount}] Рюкзак цвета {Color}, объемом {Volume}, " +
+			                  $"с числом отделов {PocketsCount} содержит {Books.Length} книг, " +
+			                  $"{Notebooks.Length} тетрадей(и), {Pens.Length} ручек(ки) и {Pencils.Length} карандашей");
+		}
+
+        /// <summary>
+        /// Этот метод работает ТОЛЬКО со статическими полями и свойствами
+        /// </summary>
         public static void PrintStaticContent()
-        {
-            Console.WriteLine($"Количество ручек {SlingsCount}");
-        }
-    }
+		{
+			Console.WriteLine($"Количество ручек {SlingsCount}");
+		}
+	}
 }
