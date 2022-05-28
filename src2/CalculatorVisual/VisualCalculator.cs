@@ -21,19 +21,19 @@ public partial class VisualCalculator : Form
 
 	private void number_Click(object sender, EventArgs e)
 	{
-		var num = (Button)sender;
+		var num = (Button) sender;
 		textBox1.Text += num.Text;
 	}
 
 	private void label1_Click(object sender, EventArgs e)
 	{
-		var num = (Button)sender;
+		var num = (Button) sender;
 		textBox1.Text += num.Text;
 	}
 
 	private void sign_Click(object sender, EventArgs e)
 	{
-		var sign = (Button)sender;
+		var sign = (Button) sender;
 		textBox1.Text += sign.Text;
 
 		if (_result != null)
@@ -48,7 +48,7 @@ public partial class VisualCalculator : Form
 
 	private void res_Click(object sender, EventArgs e)
 	{
-		textBox1.Text += ((Button)sender).Text;
+		textBox1.Text += ((Button) sender).Text;
 		Aaaaa();
 	}
 
@@ -65,7 +65,7 @@ public partial class VisualCalculator : Form
 
 	private void point_Click(object sender, EventArgs e)
 	{
-		var num = (Button)sender;
+		var num = (Button) sender;
 		textBox1.Text += num.Text;
 	}
 

@@ -33,10 +33,10 @@ namespace OOP.Bag
 			                  $"{Notebooks.Length} тетрадей(и), {Pens.Length} ручек(ки) и {Pencils.Length} карандашей");
 		}
 
-        /// <summary>
-        /// Этот метод работает ТОЛЬКО со статическими полями и свойствами
-        /// </summary>
-        public static void PrintStaticContent()
+		/// <summary>
+		/// Этот метод работает ТОЛЬКО со статическими полями и свойствами
+		/// </summary>
+		public static void PrintStaticContent()
 		{
 			Console.WriteLine($"Количество ручек {SlingsCount}");
 		}
