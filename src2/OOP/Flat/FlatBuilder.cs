@@ -55,7 +55,7 @@
 				Furnitures = GetFurnituresHall()
 			};
 
-			var rooms = new[] { room1, room2, room3, room4 };
+			var rooms = new[] {room1, room2, room3, room4};
 			return rooms;
 		}
 
@@ -81,7 +81,7 @@
 				}
 			};
 
-			var furnitures = new[] { furniture1, furniture2 };
+			var furnitures = new[] {furniture1, furniture2};
 			return furnitures;
 		}
 
@@ -123,7 +123,7 @@
 				}
 			};
 
-			var furnitures = new[] { furniture1, furniture2, furniture3 };
+			var furnitures = new[] {furniture1, furniture2, furniture3};
 			return furnitures;
 		}
 
@@ -149,7 +149,7 @@
 				TypeOfFurniture = TypeOfFurniture.Mirror
 			};
 
-			var furnitures = new[] { furniture1, furniture2, furniture3 };
+			var furnitures = new[] {furniture1, furniture2, furniture3};
 			return furnitures;
 		}
 
@@ -187,7 +187,7 @@
 				}
 			};
 
-			var furnitures = new[] { furniture1, furniture2, furniture3 };
+			var furnitures = new[] {furniture1, furniture2, furniture3};
 			return furnitures;
 		}
 	}

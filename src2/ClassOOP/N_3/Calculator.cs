@@ -15,22 +15,21 @@ namespace ClassOOP.N_3
 
 		public int Addition()
 		{
-			return Num1 + Num2;
+			var sum = Num1 + Num2;
+			Console.WriteLine($"Сумма чисел = {sum}");
+			return sum;
 		}
 
-		public int GreaterThan()
+		public int GetMaxValue()
 		{
-			if (Num1 > Num2)
+			var max = Num2;
+			if (Num1 >= Num2)
 			{
-				return Num1;
+				max = Num1;
 			}
 
-			if (Num1 == Num2)
-			{
-				Console.WriteLine("Числа равны");
-			}
-
-			return Num2;
+			Console.WriteLine($"Наибольшее число: {max}");
+			return max;
 		}
 
 		public void ChangeCalculator(int num1, int num2)
@@ -41,8 +40,8 @@ namespace ClassOOP.N_3
 
 		public void PrintContent()
 		{
-			Console.WriteLine($"Сумма чисел = {Addition()}; наибольшее число: {GreaterThan()}");
+			Console.WriteLine($"Первое число: {Num1}; Второе число: {Num2}");
+			//Console.WriteLine($"Сумма чисел = {Addition()}; наибольшее число: {GetMaxValue()}");
 		}
 	}
 }
-

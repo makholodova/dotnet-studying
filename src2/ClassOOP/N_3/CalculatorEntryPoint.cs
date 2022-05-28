@@ -9,13 +9,16 @@ namespace ClassOOP.N_3
 			var num1 = CreateNum();
 			var num2 = CreateNum();
 			var calculator1 = new Calculator(num1, num2);
-			calculator1.Addition();
-			calculator1.GreaterThan();
 			calculator1.PrintContent();
+			calculator1.Addition();
+			calculator1.GetMaxValue();
+
 			var num3 = CreateNum();
 			var num4 = CreateNum();
-			calculator1.ChangeCalculator(num3,num4);
+			calculator1.ChangeCalculator(num3, num4);
 			calculator1.PrintContent();
+			calculator1.Addition();
+			calculator1.GetMaxValue();
 		}
 
 		private static int CreateNum()

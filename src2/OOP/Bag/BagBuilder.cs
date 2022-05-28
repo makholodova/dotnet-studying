@@ -77,7 +77,7 @@
 				Color = Color.Red,
 				Length = 15
 			};
-			var pens = new[] { pen1, pen2, pen3 };
+			var pens = new[] {pen1, pen2, pen3};
 
 			return pens;
 		}
@@ -110,7 +110,7 @@
 				Length = 7
 			};
 
-			var pencils = new[] { pencil1, pencil2, pencil3, pencil4, pencil5 };
+			var pencils = new[] {pencil1, pencil2, pencil3, pencil4, pencil5};
 			return pencils;
 		}
 
@@ -140,7 +140,7 @@
 			};
 
 
-			var notebooks = new[] { notebook1, notebook2 };
+			var notebooks = new[] {notebook1, notebook2};
 			return notebooks;
 		}
 	}

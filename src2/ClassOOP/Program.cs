@@ -1,6 +1,4 @@
-﻿using ClassOOP.N_2_Train;
-using ClassOOP.N_3;
-using ClassOOP.N_5_Constructor;
+﻿using ClassOOP.N_3;
 
 namespace ClassOOP
 {
