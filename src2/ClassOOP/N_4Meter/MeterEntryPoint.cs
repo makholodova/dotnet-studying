@@ -14,30 +14,47 @@ namespace ClassOOP.N_4Meter
 
 		private static void Operation(Meter meter)
 		{
-			meter.CurrentState();
+			meter.PrintCurrentState();
 			while (true)
 			{
 				Console.WriteLine("Введите опреацию уменьшенния '-' , увеличения '+' , узнать текущее состояние '='");
 				var oper = Console.ReadLine();
-				if (oper == "+")
+				switch (oper)
 				{
-					meter.IncreaseValue();
+					case "+":
+						meter.Increase();
+						break;
+					case "-":
+						meter.Decrease();
+						break;
+					case "=":
+						meter.PrintCurrentState();
+						break;
+					default:
+						meter.PrintCurrentState();
+						return;
+				}
+
+
+				/*if (oper == "+")
+				{
+					meter.Increase();
 				}
 
 				else if (oper == "-")
 				{
-					meter.DecreaseValue();
+					meter.Decrease();
 				}
 
 				else if (oper == "=")
 				{
-					meter.CurrentState();
+					meter.PrintCurrentState();
 				}
 				else
 				{
-					meter.CurrentState();
+					meter.PrintCurrentState();
 					break;
-				}
+				}*/
 			}
 		}
 	}

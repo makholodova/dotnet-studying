@@ -22,7 +22,7 @@ namespace ClassOOP.N_4Meter
 			MaxValue = maxValue;
 		}
 
-		public int IncreaseValue()
+		public int Increase()
 		{
 			Value++;
 			if (Value > MaxValue)
@@ -33,7 +33,7 @@ namespace ClassOOP.N_4Meter
 			return Value;
 		}
 
-		public int DecreaseValue()
+		public int Decrease()
 		{
 			Value--;
 			if (Value < MinValue)
@@ -44,9 +44,9 @@ namespace ClassOOP.N_4Meter
 			return Value;
 		}
 
-		public void CurrentState()
+		public void PrintCurrentState()
 		{
 			Console.WriteLine($"Текущее состояние: значение счетчика {Value},мнимальное значение {MinValue}, максимальное значение {MaxValue} ");
-		} 
+		}
 	}
 }
