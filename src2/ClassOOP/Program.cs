@@ -1,4 +1,4 @@
-﻿using ClassOOP.N_4Meter;
+﻿using ClassOOP.N_16_Figure;
 
 namespace ClassOOP
 {
@@ -12,7 +12,8 @@ namespace ClassOOP
 			//entryPoint = new TrainEntryPoint();
 			//entryPoint = new CalculatorEntryPoint();
 			//entryPoint = new NameEntryPoint();
-			entryPoint = new MeterEntryPoint();
+			//entryPoint = new MeterEntryPoint();
+			entryPoint = new FigureEntryPoint();
 			entryPoint.Start();
 		}
 	}
