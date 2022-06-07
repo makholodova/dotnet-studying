@@ -2,22 +2,24 @@ using System;
 
 namespace ClassOOP.N_16_Figure
 {
-	public class Circle:Figure
-	
+	public class Circle : Figure
+
 	{
 		public double Radius { get; private set; }
 
 		public Circle(double radius)
 		{
-			Radius = radius;}
+			Radius = radius;
+		}
+
 		public override double CalculateArea()
 		{
-			return  Math.PI * Math.Pow(Radius, 2);
+			return Math.PI * Math.Pow(Radius, 2);
 		}
 
 		public override double CalculatePerimeter()
 		{
-			return 2*Math.PI * Radius;
+			return 2 * Math.PI * Radius;
 		}
 
 		public override void Print()

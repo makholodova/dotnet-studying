@@ -23,7 +23,7 @@ namespace ClassOOP.N_16_Figure
 
 		public override double CalculatePerimeter()
 		{
-			return (Side1 + Side2 + Side3)/2;
+			return (Side1 + Side2 + Side3) / 2;
 		}
 
 		public override void Print()
