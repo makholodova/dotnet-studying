@@ -1,4 +1,5 @@
 ﻿using ClassOOP.N_16_Figure;
+using ClassOOP.N_9_Animal;
 
 namespace ClassOOP
 {
@@ -13,7 +14,8 @@ namespace ClassOOP
 			//entryPoint = new CalculatorEntryPoint();
 			//entryPoint = new NameEntryPoint();
 			//entryPoint = new MeterEntryPoint();
-			entryPoint = new FigureEntryPoint();
+			//entryPoint = new FigureEntryPoint();
+			entryPoint = new AnimalEntryPoint();
 			entryPoint.Start();
 		}
 	}
