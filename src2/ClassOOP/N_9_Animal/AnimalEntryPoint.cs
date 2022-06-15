@@ -20,19 +20,19 @@ namespace ClassOOP.N_9_Animal
 
 			foreach (var animal in animals)
 			{
-				animal.Print();
+				Console.WriteLine($"{animal.ToString()} \r\n Общее колличество еды - {animal.AmountOfFoodPerDay()}");
 			}
 
+			Console.WriteLine($"Вывод первых 5 имен животных из списка: ");
 			for (var i = 0; i < 5; i++)
 			{
-				animals[i].PrintName();
+				Console.Write($" {animals[i].Name},");
 			}
 
-			Console.WriteLine();
-
+			Console.WriteLine($" \r\nВывод последних 3 ID животных из списка: ");
 			for (var i = animals.Length - 1; i >= 5; i--)
 			{
-				animals[i].PrintID();
+				Console.Write($" {animals[i].Identifier},");
 			}
 		}
 
@@ -43,16 +43,17 @@ namespace ClassOOP.N_9_Animal
 				for (var j = 0; j < animals.Length - i - 1; j++)
 				{
 					var animal1 = animals[j];
-					var amountOfFood1 = animal1.AmountOfFood();
+					var amountOfFoodPerDay1 = animal1.AmountOfFoodPerDay();
 					var animal2 = animals[j + 1];
-					var amountOfFood2 = animal2.AmountOfFood();
-					if (amountOfFood1 > amountOfFood2)
+					var amountOfFoodPerDay2 = animal2.AmountOfFoodPerDay();
+					if (amountOfFoodPerDay1 > amountOfFoodPerDay2)
 					{
 						animals[j] = animal2;
 						animals[j + 1] = animal1;
+						continue;
 					}
 
-					if (amountOfFood1 == amountOfFood2)
+					if (amountOfFoodPerDay1 == amountOfFoodPerDay2)
 					{
 						SortByName(animals, animal1, animal2, j);
 					}

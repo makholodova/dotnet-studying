@@ -1,5 +1,3 @@
-using System;
-
 namespace ClassOOP.N_9_Animal
 {
 	public class Predator : Animal
@@ -13,27 +11,16 @@ namespace ClassOOP.N_9_Animal
 			Meat = meat;
 		}
 
-		public override double AmountOfFood()
+		public override double AmountOfFoodPerDay()
 		{
 			return Water + Meat;
 		}
 
-		public override void Print()
+		public override string ToString()
 		{
-			Console.WriteLine($"Хищник {Name}, идентификатор  животного {Identifier}, тип и количество потребляемой пищи:" +
-			                  $" \r\n Вода - {Water};" +
-			                  $" \r\n Мясо - {Meat};" +
-			                  $" \r\n Общее колличество еды - {AmountOfFood()}");
-		}
-
-		public override void PrintName()
-		{
-			Console.Write($" {Name}, ");
-		}
-
-		public override void PrintID()
-		{
-			Console.Write($" {Identifier}, ");
+			return $"Хищник {Name}, идентификатор  животного {Identifier}, тип и количество потребляемой пищи:" +
+			       $" \r\n Вода - {Water};" +
+			       $" \r\n Мясо - {Meat};";
 		}
 	}
 }

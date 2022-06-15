@@ -11,9 +11,6 @@ namespace ClassOOP.N_9_Animal
 			Identifier = identifier;
 		}
 
-		public abstract double AmountOfFood();
-		public abstract void Print();
-		public abstract void PrintName();
-		public abstract void PrintID();
+		public abstract double AmountOfFoodPerDay();
 	}
 }

@@ -1,43 +1,29 @@
-using System;
-
 namespace ClassOOP.N_9_Animal
 {
 	public class Omnivore : Animal
 	{
-		public double Water { get; private set; }
-		public double Vegetable { get; private set; }
-		public double Meat { get; private set; }
+		public double WaterPerDay { get; private set; }
+		public double VegetablePerDay { get; private set; }
+		public double MeatPerDay { get; private set; }
 
-		public Omnivore(string name, int identifier, double water, double vegetable, double meat) : base(name, identifier)
+		public Omnivore(string name, int identifier, double waterPerDay, double vegetablePerDay, double meatPerDay) : base(name, identifier)
 		{
-			Water = water;
-			Vegetable = vegetable;
-			Meat = meat;
+			WaterPerDay = waterPerDay;
+			VegetablePerDay = vegetablePerDay;
+			MeatPerDay = meatPerDay;
 		}
 
-		public override double AmountOfFood()
+		public override double AmountOfFoodPerDay()
 		{
-			return Water + Vegetable + Meat;
+			return WaterPerDay + VegetablePerDay + MeatPerDay;
 		}
 
-		public override void Print()
+		public override string ToString()
 		{
-			Console.WriteLine(
-				$"Всеядное животное {Name}, идентификатор  животного {Identifier}, тип и количество потребляемой пищи:" +
-				$" \r\n Вода - {Water};" +
-				$" \r\n Овощи - {Vegetable};" +
-				$" \r\n Мясо - {Meat};" +
-				$" \r\n Общее колличество еды - {AmountOfFood()}");
-		}
-
-		public override void PrintName()
-		{
-			Console.Write($" {Name}, ");
-		}
-
-		public override void PrintID()
-		{
-			Console.Write($" {Identifier}, ");
+			return $"Всеядное животное {Name}, идентификатор  животного {Identifier}, тип и количество потребляемой пищи:" +
+			       $" \r\n Вода - {WaterPerDay};" +
+			       $" \r\n Овощи - {VegetablePerDay};" +
+			       $" \r\n Мясо - {MeatPerDay};";
 		}
 	}
 }

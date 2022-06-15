@@ -1,39 +1,26 @@
-using System;
-
 namespace ClassOOP.N_9_Animal
 {
 	public class Herbivore : Animal
 	{
-		public double Water { get; private set; }
-		public double Vegetable { get; private set; }
+		public double WaterPerDay { get; private set; }
+		public double VegetablePerDay { get; private set; }
 
-		public Herbivore(string name, int identifier, double water, double vegetable) : base(name, identifier)
+		public Herbivore(string name, int identifier, double waterPerDay, double vegetablePerDay) : base(name, identifier)
 		{
-			Water = water;
-			Vegetable = vegetable;
+			WaterPerDay = waterPerDay;
+			VegetablePerDay = vegetablePerDay;
 		}
 
-		public override double AmountOfFood()
+		public override double AmountOfFoodPerDay()
 		{
-			return Water + Vegetable;
+			return WaterPerDay + VegetablePerDay;
 		}
 
-		public override void Print()
+		public override string ToString() //почему override
 		{
-			Console.WriteLine($"Травоядное животное {Name}, идентификатор  животного {Identifier}, тип и количество потребляемой пищи:" +
-			                  $"  \r\n Вода - {Water};" +
-			                  $"  \r\n Овощи - {Vegetable};" +
-			                  $" \r\n Общее колличество еды - {AmountOfFood()}");
-		}
-
-		public override void PrintName()
-		{
-			Console.Write($" {Name}, ");
-		}
-
-		public override void PrintID()
-		{
-			Console.Write($" {Identifier}, ");
+			return $"Травоядное животное {Name}, идентификатор  животного {Identifier}, тип и количество потребляемой пищи:" +
+			       $"  \r\n Вода - {WaterPerDay};" +
+			       $"  \r\n Овощи - {VegetablePerDay};";
 		}
 	}
 }
