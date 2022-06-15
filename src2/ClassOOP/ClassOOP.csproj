@@ -53,6 +53,11 @@
         <Compile Include="N_4Meter\MeterEntryPoint.cs" />
         <Compile Include="N_5_Constructor\Name.cs" />
         <Compile Include="N_5_Constructor\NameEntryPoint.cs" />
+        <Compile Include="N_9_Animal\Animal.cs" />
+        <Compile Include="N_9_Animal\AnimalEntryPoint.cs" />
+        <Compile Include="N_9_Animal\Herbivore.cs" />
+        <Compile Include="N_9_Animal\Omnivore.cs" />
+        <Compile Include="N_9_Animal\Predator.cs" />
         <Compile Include="Program.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
         <Compile Include="Student\StudentEntryPoint.cs" />
