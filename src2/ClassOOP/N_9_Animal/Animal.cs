@@ -4,19 +4,16 @@ namespace ClassOOP.N_9_Animal
 	{
 		public string Name { get; private set; }
 		public int Identifier { get; private set; }
-		public  double CountOfFood { get;  set; }
-		public TypeOfFood TypeOfFood { get; private set; }
 
-		public Animal(string name, int identifier,double countOfFood,TypeOfFood typeOfFood)
+		public Animal(string name, int identifier)
 		{
 			Name = name;
 			Identifier = identifier;
-			CountOfFood = countOfFood;
-			TypeOfFood = typeOfFood;
-
 		}
 
 		public abstract double AmountOfFood();
 		public abstract void Print();
+		public abstract void PrintName();
+		public abstract void PrintID();
 	}
 }

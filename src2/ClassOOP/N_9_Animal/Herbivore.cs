@@ -4,34 +4,36 @@ namespace ClassOOP.N_9_Animal
 {
 	public class Herbivore : Animal
 	{
-		public Herbivore(string name, int identifier, double countOfFood, TypeOfFood typeOfFood) : base(name, identifier, countOfFood, typeOfFood)
+		public double Water { get; private set; }
+		public double Vegetable { get; private set; }
+
+		public Herbivore(string name, int identifier, double water, double vegetable) : base(name, identifier)
 		{
+			Water = water;
+			Vegetable = vegetable;
 		}
 
 		public override double AmountOfFood()
 		{
-			switch (TypeOfFood)
-			{
-				case TypeOfFood.DryFood:
-					CountOfFood *= 100;
-					break;
-
-				case TypeOfFood.RawFood:
-					CountOfFood *= 300;
-					break;
-
-				case TypeOfFood.Water:
-					CountOfFood *= 50;
-					break;
-			}
-
-			return CountOfFood;
+			return Water + Vegetable;
 		}
 
 		public override void Print()
 		{
-			Console.WriteLine($"Травоядное животное,идентификатор  животного {Identifier}, имя {Name}, тип и количество потребляемой пищи {TypeOfFood} {AmountOfFood()}");
-			
+			Console.WriteLine($"Травоядное животное {Name}, идентификатор  животного {Identifier}, тип и количество потребляемой пищи:" +
+			                  $"  \r\n Вода - {Water};" +
+			                  $"  \r\n Овощи - {Vegetable};" +
+			                  $" \r\n Общее колличество еды - {AmountOfFood()}");
+		}
+
+		public override void PrintName()
+		{
+			Console.Write($" {Name}, ");
+		}
+
+		public override void PrintID()
+		{
+			Console.Write($" {Identifier}, ");
 		}
 	}
 }

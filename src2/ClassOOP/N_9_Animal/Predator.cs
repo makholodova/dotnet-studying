@@ -4,47 +4,36 @@ namespace ClassOOP.N_9_Animal
 {
 	public class Predator : Animal
 	{
-		public Predator(string name, int identifier, double countOfFood, TypeOfFood typeOfFood) : base(name, identifier, countOfFood, typeOfFood)
+		public double Water { get; private set; }
+		public double Meat { get; private set; }
+
+		public Predator(string name, int identifier, double water, double meat) : base(name, identifier)
 		{
+			Water = water;
+			Meat = meat;
 		}
 
 		public override double AmountOfFood()
 		{
-			switch (TypeOfFood)
-			{
-				case TypeOfFood.DryFood:
-					CountOfFood *= 20;
-					break;
-
-				case TypeOfFood.RawFood:
-					CountOfFood *= 150;
-					break;
-
-				case TypeOfFood.Water:
-					CountOfFood *= 80;
-					break;
-			}
-
-			return CountOfFood;
+			return Water + Meat;
 		}
 
 		public override void Print()
 		{
-			Console.WriteLine($"Хищник, идентификатор  животного {Identifier}, имя {Name}, тип и количество потребляемой пищи: ");
-			switch (TypeOfFood)
-			{
-				case TypeOfFood.DryFood:
-					Console.WriteLine($"{TypeOfFood} {AmountOfFood()}");
-					break;
+			Console.WriteLine($"Хищник {Name}, идентификатор  животного {Identifier}, тип и количество потребляемой пищи:" +
+			                  $" \r\n Вода - {Water};" +
+			                  $" \r\n Мясо - {Meat};" +
+			                  $" \r\n Общее колличество еды - {AmountOfFood()}");
+		}
 
-				case TypeOfFood.RawFood:
-					Console.WriteLine($"{TypeOfFood} {AmountOfFood()}");
-					break;
+		public override void PrintName()
+		{
+			Console.Write($" {Name}, ");
+		}
 
-				case TypeOfFood.Water:
-					Console.WriteLine($"{TypeOfFood} {AmountOfFood()}");
-					break;
-			}
+		public override void PrintID()
+		{
+			Console.Write($" {Identifier}, ");
 		}
 	}
 }
