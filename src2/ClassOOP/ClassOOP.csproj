@@ -44,6 +44,8 @@
         <Compile Include="N_16_Figure\FigureEntryPoint.cs" />
         <Compile Include="N_16_Figure\Rectangle.cs" />
         <Compile Include="N_16_Figure\Triangle.cs" />
+        <Compile Include="N_17_Buyer\Buyer.cs" />
+        <Compile Include="N_17_Buyer\BuyerEntryPoint.cs" />
         <Compile Include="N_2_Train\Train.cs" />
         <Compile Include="N_2_Train\TrainEntryPoint.cs" />
         <Compile Include="IEntryPoint.cs" />
