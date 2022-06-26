@@ -46,6 +46,12 @@
         <Compile Include="N_16_Figure\Triangle.cs" />
         <Compile Include="N_17_Buyer\Buyer.cs" />
         <Compile Include="N_17_Buyer\BuyerEntryPoint.cs" />
+        <Compile Include="N_19_MotorDepot\Car.cs" />
+        <Compile Include="N_19_MotorDepot\Dispatcher.cs" />
+        <Compile Include="N_19_MotorDepot\Driver.cs" />
+        <Compile Include="N_19_MotorDepot\Flight.cs" />
+        <Compile Include="N_19_MotorDepot\MotorDepot.cs" />
+        <Compile Include="N_19_MotorDepot\MotorDepotEntryPoint.cs" />
         <Compile Include="N_2_Train\Train.cs" />
         <Compile Include="N_2_Train\TrainEntryPoint.cs" />
         <Compile Include="IEntryPoint.cs" />

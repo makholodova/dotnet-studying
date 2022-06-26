@@ -1,5 +1,5 @@
 ﻿using ClassOOP.N_16_Figure;
-using ClassOOP.N_17_Buyer;
+using ClassOOP.N_19_MotorDepot;
 using ClassOOP.N_9_Animal;
 
 namespace ClassOOP
@@ -17,7 +17,7 @@ namespace ClassOOP
 			//entryPoint = new MeterEntryPoint();
 			//entryPoint = new FigureEntryPoint();
 			//entryPoint = new AnimalEntryPoint();
-			entryPoint = new BuyerEntryPoint();
+			entryPoint = new MotorDepotEntryPoint();
 			entryPoint.Start();
 		}
 	}
