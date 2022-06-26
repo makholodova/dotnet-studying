@@ -39,6 +39,16 @@
         <Reference Include="System.Xml" />
     </ItemGroup>
     <ItemGroup>
+        <Compile Include="Bayer\Bayer.cs" />
+        <Compile Include="Bayer\BayerEntryPoint.cs" />
+        <Compile Include="Bayer\Book.cs" />
+        <Compile Include="Bayer\Fruit.cs" />
+        <Compile Include="Bayer\Product.cs" />
+        <Compile Include="Bayer\Purchase.cs" />
+        <Compile Include="Bayer\Size.cs" />
+        <Compile Include="Bayer\TypeOfFruit.cs" />
+        <Compile Include="Bayer\TypeOfVegetable.cs" />
+        <Compile Include="Bayer\Vegetable.cs" />
         <Compile Include="N_16_Figure\Circle.cs" />
         <Compile Include="N_16_Figure\Figure.cs" />
         <Compile Include="N_16_Figure\FigureEntryPoint.cs" />
