@@ -1,4 +1,4 @@
-namespace ClassOOP.Bayer
+namespace ClassOOP.Buyer
 {
 	public class Vegetable : Product
 	{
