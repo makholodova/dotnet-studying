@@ -1,6 +1,4 @@
-﻿using ClassOOP.N_16_Figure;
-using ClassOOP.N_17_Buyer;
-using ClassOOP.N_9_Animal;
+﻿using ClassOOP.LINQ;
 
 namespace ClassOOP
 {
@@ -17,7 +15,8 @@ namespace ClassOOP
 			//entryPoint = new MeterEntryPoint();
 			//entryPoint = new FigureEntryPoint();
 			//entryPoint = new AnimalEntryPoint();
-			entryPoint = new BuyerEntryPoint();
+			//entryPoint = new BuyerEntryPoint();
+			entryPoint = new LinqEntryPoint();
 			entryPoint.Start();
 		}
 	}
