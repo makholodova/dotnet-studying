@@ -83,16 +83,9 @@ namespace ClassOOP.Buyer
 						string.Equals(createdProduct.Name, enteredProductName, StringComparison.OrdinalIgnoreCase)))
 				.ToList();
 
-			if (foundProducts.Count == 0)
-			{
-				Console.WriteLine("Покупка невозможна");
-				return;
-			}
-
 			var unFoundProducts = enteredProductNames.Where(enteredProductName =>
 					!createdProducts.Any(createdProduct => string.Equals(enteredProductName, createdProduct.Name, StringComparison.OrdinalIgnoreCase)))
 				.ToList();
-			
 
 			if (unFoundProducts.Count != 0)
 			{
@@ -101,7 +94,12 @@ namespace ClassOOP.Buyer
 				{
 					Console.WriteLine($"{unFoundProduct.ToString()}");
 				}
-				
+			}
+
+			if (foundProducts.Count == 0)
+			{
+				Console.WriteLine("Покупка невозможна");
+				return;
 			}
 
 			buyer.BayProducts(foundProducts);
