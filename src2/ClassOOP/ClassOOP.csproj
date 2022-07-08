@@ -39,6 +39,16 @@
         <Reference Include="System.Xml" />
     </ItemGroup>
     <ItemGroup>
+        <Compile Include="Buyer\Buyer.cs" />
+        <Compile Include="Buyer\BuyerEntryPoint.cs" />
+        <Compile Include="Buyer\Book.cs" />
+        <Compile Include="Buyer\Fruit.cs" />
+        <Compile Include="Buyer\Product.cs" />
+        <Compile Include="Buyer\Purchase.cs" />
+        <Compile Include="Buyer\Size.cs" />
+        <Compile Include="Buyer\TypeOfFruit.cs" />
+        <Compile Include="Buyer\TypeOfVegetable.cs" />
+        <Compile Include="Buyer\Vegetable.cs" />
         <Compile Include="N_16_Figure\Circle.cs" />
         <Compile Include="N_16_Figure\Figure.cs" />
         <Compile Include="N_16_Figure\FigureEntryPoint.cs" />
