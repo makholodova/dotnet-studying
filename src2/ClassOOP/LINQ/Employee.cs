@@ -26,5 +26,12 @@ namespace ClassOOP.LINQ
 			DateOfEmployment = dateOfEmployment;
 			Salary = salary;
 		}
+
+		public override string ToString()
+		{
+			return $"{FullName} " + $" {Age} лет, " + $"пол: {Gender}, " + $"должность: {Position}, " +
+			       $"дата устройства на работу: {DateOfEmployment}, " +
+			       $"зарплата {Salary}";
+		}
 	}
 }
