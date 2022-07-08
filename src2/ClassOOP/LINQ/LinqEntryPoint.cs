@@ -20,13 +20,23 @@ namespace ClassOOP.LINQ
 			TheEldestEmployee(employees);
 			TheYoungestEmployee(employees);
 			StartDateOfTheFirstEmployee(employees);
-			//ListOfEmployees
+			ListOfEmployees(employees);
+		}
+
+		private static void ListOfEmployees(List<Employee> employees)
+		{
 			Console.WriteLine("Вывести сисок сотрудников:");
-			var listOfEmployee = employees.Where(p =>
-				(p.Position == "Программист") &
-				(p.Salary >= 100000) & (p.Salary <= 200000)).OrderBy(p =>
-				p.Age).ThenBy(p => p.FullName).Take(5);
-			foreach (var employee in listOfEmployee)
+			var listOfEmployeeAge = employees
+				.Where(p =>
+					p.Position == "Программист" &&
+					p.Salary >= 100000 && p.Salary <= 200000 &&
+					((p.Gender == Gender.Male && p.Age >= 20 && p.Age <= 40) ||
+					 (p.Gender == Gender.Female && p.Age >= 20 && p.Age <= 45)))
+				.OrderBy(p => p.Age)
+				.ThenBy(p => p.FullName)
+				.Take(5);
+
+			foreach (var employee in listOfEmployeeAge)
 			{
 				Console.WriteLine(employee.ToString());
 			}
