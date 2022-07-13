@@ -49,6 +49,10 @@
         <Compile Include="Buyer\TypeOfFruit.cs" />
         <Compile Include="Buyer\TypeOfVegetable.cs" />
         <Compile Include="Buyer\Vegetable.cs" />
+        <Compile Include="LINQ\Employee.cs" />
+        <Compile Include="LINQ\EmployeeBuilder.cs" />
+        <Compile Include="LINQ\Gender.cs" />
+        <Compile Include="LINQ\LinqEntryPoint.cs" />
         <Compile Include="N_16_Figure\Circle.cs" />
         <Compile Include="N_16_Figure\Figure.cs" />
         <Compile Include="N_16_Figure\FigureEntryPoint.cs" />
