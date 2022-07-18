@@ -2,6 +2,8 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FirstWebApplication", "FirstWebApplication\FirstWebApplication.csproj", "{1CA306BE-8C39-4960-972D-D2553034349B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MotorDeport", "MotorDeport\MotorDeport.csproj", "{220F736F-DE54-4B93-9E08-DD26B89FB7AA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +14,9 @@ Global
 		{1CA306BE-8C39-4960-972D-D2553034349B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1CA306BE-8C39-4960-972D-D2553034349B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1CA306BE-8C39-4960-972D-D2553034349B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{220F736F-DE54-4B93-9E08-DD26B89FB7AA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{220F736F-DE54-4B93-9E08-DD26B89FB7AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{220F736F-DE54-4B93-9E08-DD26B89FB7AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{220F736F-DE54-4B93-9E08-DD26B89FB7AA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
