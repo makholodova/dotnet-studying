@@ -14,6 +14,7 @@ public class HomeController : Controller
     public IActionResult Buy(int? id)
     {
         if (id == null) return RedirectToAction("Index");
+        
         ViewBag.PhoneId = id;
         return View();
     }
@@ -21,8 +22,6 @@ public class HomeController : Controller
     public string Buy(Order order)
     {
         MobileContext.Orders.Add(order);
-        // сохраняем в бд все изменения
-       // MobileContext.SaveChanges();
-        return "Спасибо, " + order.User + ", за покупку!";
+       return "Спасибо, " + order.User + ", за покупку!";
     }
 }

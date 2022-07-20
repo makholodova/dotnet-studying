@@ -1,0 +1,28 @@
+﻿@model IEnumerable<TripModel>
+@{
+    ViewData["Title"] = "Список рейсов";
+}
+
+
+<h3>Рейсы</h3>
+<table>
+    <tr>
+        <td>Время</td>
+        <td>Направление</td>
+        <td>Имя водителя</td>
+        <td>Марка автомобиля</td>
+        <td>Номер автомобиля</td>
+        <td></td>
+    </tr>
+    @foreach (var trip in Model)
+    {
+        <tr>
+            <td>@trip.Time</td>
+            <td>@trip.Route</td>
+            <td>@trip.DriverName</td>
+            <td>@trip.ModelCar</td>
+            <td>@trip.NumberCar</td>
+
+        </tr>
+    }
+</table>

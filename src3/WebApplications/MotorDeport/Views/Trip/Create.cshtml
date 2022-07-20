@@ -1,0 +1,54 @@
+﻿@model TripModelGet
+@{
+    ViewData["Title"] = "Оформления рейса";
+}
+
+<div>
+    <h3>Форма оформления рейса</h3>
+    <p>Для оформления рейса заполните следующие поля:</p>
+    <form method="post">
+        <table>
+            <tr>
+                <td>Направление:</td>
+                <td>
+
+                    <input type="text" name="Route"/>
+                </td>
+            </tr>
+            <tr>
+                <td>Время:</td>
+                <td>
+                    <input type="text" name="Time"/>
+                </td>
+            </tr>
+            <tr>
+                <td>Водитель:</td>
+                <td>
+                    <select id="DriverId" name="DriverId">
+                        @foreach (var driver in Model.Drivers)
+                        {
+                            <option value="@driver.Id">@driver.Name</option>
+                        }
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Автомобиль:</td>
+                <td>
+                    <select id="CarId" name="CarId">
+                        @foreach (var car in Model.Cars)
+                        {
+                            <option value="@car.Id">@car.Model</option>
+                        }
+                    </select>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <input type="submit" value="Создать"/>
+                </td><td></td>
+            </tr>
+        </table>
+    </form>
+</div>
