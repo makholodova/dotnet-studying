@@ -10,6 +10,6 @@ public class Driver
     }
 
     public string Name { get; }
-    public bool IsWork { get; }
+    public bool IsWork { get; set; }
     public Guid Id { get; }
 }

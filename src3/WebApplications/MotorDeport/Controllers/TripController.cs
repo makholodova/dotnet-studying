@@ -18,7 +18,8 @@ public class TripController : Controller
                 Route = dbTrip.Route,
                 DriverName = MotorDeportDb.Drivers.First(driver => driver.Id == dbTrip.DriverId).Name,
                 ModelCar = tripCar.Model,
-                NumberCar = tripCar.Number
+                NumberCar = tripCar.Number,
+                Id = dbTrip.Id
             };
 
             trips.Add(tripModel);
@@ -26,6 +27,7 @@ public class TripController : Controller
 
         return View(trips);
     }
+
 
     [HttpGet]
     public IActionResult Create()
@@ -43,7 +45,16 @@ public class TripController : Controller
     public IActionResult Create(TripModelPost trip)
     {
         MotorDeportDb.Trips.Add(new Trip(trip.Time, trip.Route, Guid.NewGuid(), trip.DriverId, trip.CarId));
-        //return View();
+
+        return RedirectToAction("Index");
+    }
+
+    public IActionResult Delete(Guid id)
+    {
+        var trip = MotorDeportDb.Trips.First(trip => trip.Id == id);
+        MotorDeportDb.Trips.Remove(trip);
+        //MotorDeportDb.Trips.Add(new Trip(trip.Time, trip.Route, Guid.NewGuid(), trip.DriverId, trip.CarId));
+
         return RedirectToAction("Index");
     }
 }

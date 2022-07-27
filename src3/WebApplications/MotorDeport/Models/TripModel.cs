@@ -9,4 +9,5 @@ public class TripModel
     public string ModelCar { get; set; }
 
     public int NumberCar { get; set; }
+    public Guid Id { get; set; }
 }

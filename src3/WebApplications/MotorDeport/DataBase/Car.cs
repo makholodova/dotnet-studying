@@ -10,7 +10,7 @@ public class Car
         Id = id;
     }
 
-    public bool IsWork { get; }
+    public bool IsWork { get; set; }
     public string Model { get; }
     public int Number { get; }
     public Guid Id { get; }
