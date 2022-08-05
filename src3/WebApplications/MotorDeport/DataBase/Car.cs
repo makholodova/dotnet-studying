@@ -11,7 +11,7 @@ public class Car
     }
 
     public bool IsWork { get; set; }
-    public string Model { get; }
-    public int Number { get; }
+    public string Model { get; set; }
+    public int Number { get; set; }
     public Guid Id { get; }
 }

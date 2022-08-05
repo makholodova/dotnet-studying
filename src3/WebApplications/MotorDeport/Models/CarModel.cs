@@ -6,4 +6,5 @@ public class CarModel
     public string Model { get; set; }
     public int Number { get; set; }
     public Guid Id { get; set; }
+    public bool IsOnTrip { get; set; }
 }

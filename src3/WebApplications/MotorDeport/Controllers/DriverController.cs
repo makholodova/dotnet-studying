@@ -11,11 +11,18 @@ public class DriverController : Controller
         var drivers = new List<DriverModel>();
         foreach (var driver in MotorDeportDb.Drivers)
         {
-            var driverModel = new DriverModel {Name = driver.Name, Id = driver.Id, IsWork = driver.IsWork};
+            var driverModel = ConvertToDriverModel(driver);
             drivers.Add(driverModel);
         }
 
         return View(drivers);
+    }
+
+    private static DriverModel ConvertToDriverModel(Driver driver)
+    {
+        var isOnTrip = MotorDeportDb.Trips.Any(x => x.DriverId == driver.Id);
+        var driverModel = new DriverModel {Name = driver.Name, Id = driver.Id, IsWork = driver.IsWork, IsOnTrip = isOnTrip};
+        return driverModel;
     }
 
     [HttpGet]
@@ -38,6 +45,7 @@ public class DriverController : Controller
         MotorDeportDb.Drivers.RemoveAll(driver => driver.Id == id);
         return RedirectToAction("Index");
     }
+
     [HttpGet]
     public IActionResult Work(Guid id)
     {
@@ -45,13 +53,29 @@ public class DriverController : Controller
         driver.IsWork = true;
         return RedirectToAction("Index");
     }
+
     [HttpGet]
     public IActionResult NotWork(Guid id)
-    {var driver = MotorDeportDb.Drivers.First(driver => driver.Id == id);
+    {
+        var driver = MotorDeportDb.Drivers.First(driver => driver.Id == id);
         driver.IsWork = false;
-        
+
         return RedirectToAction("Index");
     }
-   
-    
+    [HttpGet]
+    public IActionResult  Update(Guid id)
+    {
+        var driver = MotorDeportDb.Drivers.First(driver => driver.Id == id);
+        var driverModel = ConvertToDriverModel(driver);
+       return View(driverModel);
+    }
+
+    [HttpPost]
+    public IActionResult Update(DriverModel driver)
+    {
+        var driverDb = MotorDeportDb.Drivers.First(driverDb => driverDb.Id == driver.Id);
+        driverDb.Name = driver.Name;
+        driverDb.IsWork = driver.IsWork;
+        return RedirectToAction("Index");
+    }
 }

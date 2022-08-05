@@ -9,7 +9,7 @@ public class Driver
         Id = id;
     }
 
-    public string Name { get; }
+    public string Name { get; set; }
     public bool IsWork { get; set; }
     public Guid Id { get; }
 }

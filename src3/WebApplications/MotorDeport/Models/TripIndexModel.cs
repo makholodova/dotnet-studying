@@ -1,6 +1,6 @@
 ﻿namespace MotorDeport.Models;
 
-public class TripModel
+public class TripIndexModel
 {
     public DateTime Time { get; set; }
     public string Route { get; set; }

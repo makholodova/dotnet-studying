@@ -3,7 +3,6 @@
 @{
     ViewData["Title"] = "Список автомобилей";
 }
-
 <div>
     @if (Model.Count > 0)
     {
@@ -12,30 +11,32 @@
             <tr>
                 <td>Модель </td>
                 <td>Номер </td>
-                <td>Состояние машины </td>
                 <td>Поставить/убрать машину с ремонта </td>
-               
             </tr>
-
             @foreach (var car in Model)
             {
                 <tr>
                     <td> @car.Model </td>
                     <td> @car.Number </td>
-                    <td> @car.IsWork </td>
-                    @if (car.IsWork)
+                    @if (car.IsOnTrip)
+                    {
+                        <td> Машина в рейсе</td>
+                    }
+                    @if (car.IsWork && car.IsOnTrip == false)
                     {
                         <td>
                             <a class="nav-link text-dark" asp-area="" asp-controller="Car" asp-action="PutOnRepair" asp-route-id="@car.Id">Поставить на ремонт</a>
                         </td>
                     }
-                    @if (car.IsWork == false)
+                    @if (car.IsWork == false && car.IsOnTrip == false)
                     {
                         <td>
                             <a class="nav-link text-dark" asp-area="" asp-controller="Car" asp-action="RemoveFromRepair" asp-route-id="@car.Id">Убрать с ремонта</a>
                         </td>
                     }
-
+                    <td>
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Car" asp-action="Update" asp-route-id="@car.Id">Редактировать</a>
+                    </td>
                     <td>
                         <a class="nav-link text-dark" asp-area="" asp-controller="Car" asp-action="Delete" asp-route-id="@car.Id">Удалить</a>
                     </td>

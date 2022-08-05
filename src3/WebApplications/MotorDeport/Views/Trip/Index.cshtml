@@ -1,4 +1,4 @@
-﻿@model List<TripModel>
+﻿@model List<TripIndexModel>
 @{
     ViewData["Title"] = "Список рейсов";
 }
@@ -24,6 +24,9 @@
                 <td>@trip.DriverName</td>
                 <td>@trip.ModelCar</td>
                 <td>@trip.NumberCar</td>
+                <td>
+                    <a class="nav-link text-dark" asp-area="" asp-controller="Trip" asp-action="Update" asp-route-id="@trip.Id">Редактировать</a>
+                </td>
                 <td>
                     <a class="nav-link text-dark" asp-area="" asp-controller="Trip" asp-action="Delete" asp-route-id="@trip.Id">Удалить</a>
                 </td>

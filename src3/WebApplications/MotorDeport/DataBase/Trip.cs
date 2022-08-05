@@ -8,12 +8,12 @@ public class Trip
         Route = route;
         Id = id;
         DriverId = idDriver;
-        CarrId = idCar;
+        CarId = idCar;
     }
 
-    public DateTime Time { get; }
-    public string Route { get; }
+    public DateTime Time { get; set; }
+    public string Route { get; set; }
     public Guid Id { get; }
-    public Guid DriverId { get; }
-    public Guid CarrId { get; }
+    public Guid DriverId { get; set; }
+    public Guid CarId { get; set; }
 }
