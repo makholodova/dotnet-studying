@@ -27,7 +27,7 @@
                     <select id="DriverId" name="DriverId">
                         @foreach (var driver in Model.Drivers)
                         {
-                            @if (driver.IsWork )
+                            @if (driver.IsWork)
                             {
                                 <option value="@driver.Id">@driver.Name</option>
                             }
@@ -41,9 +41,10 @@
                     <select id="CarId" name="CarId">
                         @foreach (var car in Model.Cars)
                         {
-                            @if(car.IsWork)
-                            {<option value="@car.Id">@car.Model</option>}
-                            
+                            @if (car.IsWork)
+                            {
+                                <option value="@car.Id">@car.Model</option>
+                            }
                         }
                     </select>
                 </td>

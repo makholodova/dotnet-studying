@@ -4,8 +4,7 @@ namespace MotorDeport.Views.Driver;
 
 public class Update : PageModel
 {
-    public void OnGet()
-    {
-        
-    }
+	public void OnGet()
+	{
+	}
 }

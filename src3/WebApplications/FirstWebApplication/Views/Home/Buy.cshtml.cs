@@ -4,8 +4,7 @@ namespace FirstWebApplication.Views;
 
 public class Buy : PageModel
 {
-    public void OnGet()
-    {
-        
-    }
+	public void OnGet()
+	{
+	}
 }
