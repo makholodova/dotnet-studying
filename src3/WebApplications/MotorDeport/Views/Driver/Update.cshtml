@@ -1,0 +1,42 @@
+﻿@model DriverModel
+
+@{
+    ViewData["Title"] = "Изменить данные водителя ";
+}
+
+
+<div>
+    <h3>Форма изменения данных водителя</h3>
+    <p>Для изменения данных заполните следующие поля:</p>
+    <form method="post">
+        <table>
+            <tr>
+                <td>Изменить имя:</td>
+                <td>
+
+                    <input type="text" name="Name" value="@Model.Name"/>
+                </td>
+            </tr>
+            <tr>
+                <td>Изменить статус:</td>
+                <td>
+                    <select name="IsWork">
+                        <option value="true">работает</option>
+                        <option value="false">не работает</option>
+                    </select>
+                    @*<input list="statusList" type="text" name="IsWork" value="@Model.IsWork"/>*@
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="submit" value="Сохранить"/>
+                </td><td></td>
+            </tr>
+        </table>
+        @*<datalist id="statusList">
+            <option value="true" >работает</option>
+            <option value="false" >не работает</option>
+        </datalist>*@
+    </form>
+
+</div>

@@ -1,0 +1,52 @@
+﻿@model List<DriverModel>
+
+@{
+    ViewData["Title"] = "Список водителей";
+}
+<div>
+
+    @if (Model.Count > 0)
+    {
+        <h3>Список водителей:</h3>
+        <table>
+            <tr>
+                <td>Имя</td>
+                <td>Текущее состояние</td>
+            </tr>
+            @foreach (var driver in Model)
+            {
+                <tr>
+                    <td>@driver.Name </td>
+
+                    @if (driver.IsOnTrip)
+                    {
+                        <td>Водитель на рейсе</td>
+                    }
+                    @if (driver.IsWork == false && driver.IsOnTrip == false)
+                    {
+                        <td>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Driver" asp-action="Work" asp-route-id="@driver.Id">Не работает</a>
+                        </td>
+                    }
+                    @if (driver.IsWork && driver.IsOnTrip == false)
+                    {
+                        <td>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Driver" asp-action="NotWork" asp-route-id="@driver.Id">Работает</a>
+                        </td>
+                    }
+                    <td>
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Driver" asp-action="Update" asp-route-id="@driver.Id">Редактировать</a>
+                    </td>
+                    <td>
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Driver" asp-action="Delete" asp-route-id="@driver.Id">Удалить</a>
+                    </td>
+                </tr>
+            }
+        </table>
+    }
+    else
+    {
+        <td>Водители отсутствуют</td>
+    }
+    <a class="nav-link text-dark" asp-area="" asp-controller="Driver" asp-action="Create">Добавить водителя</a>
+</div>

@@ -1,0 +1,35 @@
+﻿@model CarModel
+
+@{
+    ViewData["Title"] = "Добавить автомобиль ";
+}
+
+
+<div>
+    <h3>Форма добавления автомобиля</h3>
+    <p>Для оформления автомобиля заполните следующие поля:</p>
+    <form method="post">
+        <table>
+            <tr>
+                <td>Модель:</td>
+                <td>
+
+                    <input type="text" name="Model"/>
+                </td>
+            </tr>
+            <tr>
+                <td>Номер:</td>
+                <td>
+                    <input type="text" name="Number" maxlength="3"/>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <input type="submit" value="Добавить"/>
+                </td><td></td>
+            </tr>
+        </table>
+    </form>
+
+</div>

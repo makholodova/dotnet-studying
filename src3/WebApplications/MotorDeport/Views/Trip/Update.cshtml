@@ -1,0 +1,61 @@
+﻿@model TripUpdateModelGet
+
+@{
+    ViewData["Title"] = "Изменить данные рейса";
+}
+
+<div>
+    <h3>Форма изменения данных рейса</h3>
+    <p>Для изменения данных заполните следующие поля:</p>
+    <form method="post">
+        <table>
+            <tr>
+                <td>Направление:</td>
+                <td>
+
+                    <input type="text" name="Route" value="@Model.Route"/>
+                </td>
+            </tr>
+            <tr>
+                <td>Время:</td>
+                <td>
+                    <input type="text" name="Time" value="@Model.Time"/>
+                </td>
+            </tr>
+            <tr>
+                <td>Водитель:</td>
+                <td>
+                    <select id="DriverId" name="DriverId">
+                        @foreach (var driver in Model.Drivers)
+                        {
+                            @if (driver.IsWork)
+                            {
+                                <option value="@driver.Id">@driver.Name</option>
+                            }
+                        }
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Автомобиль:</td>
+                <td>
+                    <select id="CarId" name="CarId">
+                        @foreach (var car in Model.Cars)
+                        {
+                            @if (car.IsWork)
+                            {
+                                <option value="@car.Id">@car.Model</option>
+                            }
+                        }
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="submit" value="Сохранить"/>
+                </td><td></td>
+            </tr>
+        </table>
+    </form>
+
+</div>

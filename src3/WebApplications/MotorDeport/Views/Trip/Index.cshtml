@@ -1,0 +1,44 @@
+﻿@model List<TripIndexModel>
+@{
+    ViewData["Title"] = "Список рейсов";
+}
+
+@if (Model.Count > 0)
+{
+    <h3>Рейсы</h3>
+    <table>
+        <tr>
+            <td>Время</td>
+            <td>Направление</td>
+            <td>Имя водителя</td>
+            <td>Марка автомобиля</td>
+            <td>Номер автомобиля</td>
+
+            <td></td>
+        </tr>
+        @foreach (var trip in Model)
+        {
+            <tr>
+                <td>@trip.Time</td>
+                <td>@trip.Route</td>
+                <td>@trip.DriverName</td>
+                <td>@trip.ModelCar</td>
+                <td>@trip.NumberCar</td>
+                <td>
+                    <a class="nav-link text-dark" asp-area="" asp-controller="Trip" asp-action="Update" asp-route-id="@trip.Id">Редактировать</a>
+                </td>
+                <td>
+                    <a class="nav-link text-dark" asp-area="" asp-controller="Trip" asp-action="Delete" asp-route-id="@trip.Id">Удалить</a>
+                </td>
+
+            </tr>
+        }
+    </table>
+}
+else
+{
+    <td>Нет созданных рейсов</td>
+}
+<div>
+    <a class="nav-link text-dark" asp-area="" asp-controller="Trip" asp-action="Create">Создать рейс</a>
+</div>
