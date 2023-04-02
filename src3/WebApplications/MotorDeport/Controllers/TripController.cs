@@ -68,6 +68,7 @@ public class TripController : Controller
 			new DriverModel { Id = x.Id, IsWork = x.IsWork, Name = x.Name }).ToList();
 		var cars = MotorDeportDb.Cars.Select(x =>
 			new CarModel { IsWork = x.IsWork, Model = x.Model, Number = x.Number, Id = x.Id }).ToList();
+
 		var tripUpdateModelGet = new TripUpdateModelGet
 		{
 			Drivers = drivers,
