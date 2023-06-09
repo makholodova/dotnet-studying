@@ -212,6 +212,18 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "N_11function", "N_11functio
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "N_7funtion", "N_7funtion\N_7funtion.csproj", "{C3DDFE95-8A88-4CC1-9CA8-AA224033ECAD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "N1_leetcode", "N1_leetcode\N1_leetcode.csproj", "{8EB6327A-917C-431D-BD71-AB756E0EED27}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "N2_leetcode", "N2_leetcode\N2_leetcode.csproj", "{26F737B5-5C1F-4E32-8ACA-CC7C86E91273}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "N3_leetcode", "N3_leetcode\N3_leetcode.csproj", "{E6C263CD-C5B1-4611-9065-586C72E9D1DA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "N4_leetcode", "N4_leetcode\N4_leetcode.csproj", "{59C32971-4C27-4D6D-B4F2-025D52D0A5BC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "N5_leetcode", "N5_leetcode\N5_leetcode.csproj", "{277745FB-11A6-4D16-8C52-1EA02D12747C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "N6_leetcode", "N6_leetcode\N6_leetcode.csproj", "{98201F5F-8DFB-4324-AA04-D4A7FD124788}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -614,6 +626,30 @@ Global
 		{C3DDFE95-8A88-4CC1-9CA8-AA224033ECAD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C3DDFE95-8A88-4CC1-9CA8-AA224033ECAD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C3DDFE95-8A88-4CC1-9CA8-AA224033ECAD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8EB6327A-917C-431D-BD71-AB756E0EED27}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8EB6327A-917C-431D-BD71-AB756E0EED27}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8EB6327A-917C-431D-BD71-AB756E0EED27}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8EB6327A-917C-431D-BD71-AB756E0EED27}.Release|Any CPU.Build.0 = Release|Any CPU
+		{26F737B5-5C1F-4E32-8ACA-CC7C86E91273}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{26F737B5-5C1F-4E32-8ACA-CC7C86E91273}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{26F737B5-5C1F-4E32-8ACA-CC7C86E91273}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{26F737B5-5C1F-4E32-8ACA-CC7C86E91273}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E6C263CD-C5B1-4611-9065-586C72E9D1DA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E6C263CD-C5B1-4611-9065-586C72E9D1DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E6C263CD-C5B1-4611-9065-586C72E9D1DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E6C263CD-C5B1-4611-9065-586C72E9D1DA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{59C32971-4C27-4D6D-B4F2-025D52D0A5BC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{59C32971-4C27-4D6D-B4F2-025D52D0A5BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{59C32971-4C27-4D6D-B4F2-025D52D0A5BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{59C32971-4C27-4D6D-B4F2-025D52D0A5BC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{277745FB-11A6-4D16-8C52-1EA02D12747C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{277745FB-11A6-4D16-8C52-1EA02D12747C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{277745FB-11A6-4D16-8C52-1EA02D12747C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{277745FB-11A6-4D16-8C52-1EA02D12747C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{98201F5F-8DFB-4324-AA04-D4A7FD124788}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{98201F5F-8DFB-4324-AA04-D4A7FD124788}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{98201F5F-8DFB-4324-AA04-D4A7FD124788}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{98201F5F-8DFB-4324-AA04-D4A7FD124788}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{FB5CDAD6-264D-4BAF-B09D-541A5DD42333} = {AC5FF6F2-440D-4A65-8B80-E9F09D5C6054}
