@@ -1,0 +1,41 @@
+﻿@model ClientModel
+
+@{
+    ViewBag.Title = "Добавить клиента";
+
+}
+<div>
+    <h3>Форма добавления клиента</h3>
+    <p>Для оформления клиента заполните следующие поля:</p>
+    <form method="post">
+        <table>
+            <tr>
+                <td>Имя:</td>
+                <td>
+
+                    <input type="text" name="Name"/>
+                </td>
+            </tr>
+            <tr>
+                <td>Номер телефона:</td>
+                <td>
+                    <input type="text" name="ContactPhone" maxlength="12"/>
+                </td>
+            </tr>
+            <tr>
+                <td>Адрес:</td>
+                <td>
+                    <input type="text" name="Address"/>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <input type="submit" value="Добавить"/>
+                </td><td></td>
+            </tr>
+        </table>
+    </form>
+
+</div>
+

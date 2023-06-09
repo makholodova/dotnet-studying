@@ -1,0 +1,33 @@
+﻿@model List<ClientModel>
+
+@{
+    ViewData["Title"] = "Список клиентов";
+
+}
+<div>
+    @if (Model.Count > 0)
+    {
+        <h3>Список клиентов:</h3>
+        <table>
+            <tr>
+                <td>Имя </td>
+                <td>Телефон </td>
+                <td>Адрес </td>
+            </tr>
+            @foreach (var client in Model)
+            {
+                <tr>
+                    <td> @client.Name  </td>
+                    <td> @client.ContactPhone  </td>
+                    <td> @client.Address  </td>
+                </tr>
+            }
+        </table>
+    }
+    else
+    {
+        <td>Клиенты отсутствуют</td>
+    }
+    <a class="nav-link text-dark" asp-area="" asp-controller="Client" asp-action="Create">Добавить клиента</a>
+
+</div>

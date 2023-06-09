@@ -1,0 +1,53 @@
+﻿@model ProductModel
+
+@{
+    ViewBag.Title = "Добавить товар";
+
+}
+
+<div>
+    <h3>Форма добавления товара</h3>
+    <p>Для оформления товара заполните следующие поля:</p>
+    <form method="post">
+        <table>
+            <tr>
+                <td>Имя:</td>
+                <td>
+
+                    <input type="text" name="Name"/>
+                </td>
+            </tr>
+            <tr>
+                <td>Количество в остатке:</td>
+                <td>
+                    <input type="text" name="Quantity"/>
+                </td>
+            </tr>
+            <tr>
+                <td>Производитель:</td>
+                <td>
+                    <input type="text" name="Company"/>
+                </td>
+            </tr>
+            <tr>
+                <td>В наличии:</td>
+                <td>
+                    <input type="text" name="InStock"/>
+                </td>
+            </tr>
+            <tr>
+                <td>Цена:</td>
+                <td>
+                    <input type="text" name="Cost"/>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <input type="submit" value="Добавить"/>
+                </td><td></td>
+            </tr>
+        </table>
+    </form>
+
+</div>

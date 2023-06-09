@@ -1,0 +1,49 @@
+﻿@model OrderCreateModelGet
+
+@{
+    ViewData["Title"] = "Оформления заказа";
+}
+<div>
+    <h3>Форма оформления заказа</h3>
+    <p>Для оформления заказа заполните следующие поля:</p>
+    <form method="post">
+        <table>
+            <tr>
+                <td>Время:</td>
+                <td>
+                    <input type="text" name="Time"/>
+                </td>
+            </tr>
+            <tr>
+                <td>Покупатель:</td>
+                <td>
+                    <select id="ClientId" name="ClientId">
+                        @foreach (var client in Model.Clients)
+                        {
+                            <option value="@client.Id">@client.Name</option>
+                        }
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Продукт:</td>
+                <td>
+                    <select id="ProductId" name="ProductId">
+                        @foreach (var product in Model.Products)
+                        {
+                           
+                                <option value="@product.Id">@product.Name</option>
+                            
+                        }
+                    </select>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <input type="submit" value="Создать"/>
+                </td><td></td>
+            </tr>
+        </table>
+    </form>
+</div>

@@ -1,0 +1,41 @@
+﻿@model List<OrderIndexModel>
+
+@{
+    ViewData["Title"] = "Список заказов";
+}
+
+<h3>Заказы</h3>
+@if (Model.Count > 0)
+{
+    <table>
+        <tr>
+            <td>Время заказа</td>
+            <td>Имя клиента</td>
+            <td>Контактный номер</td>
+            <td>Адрес доставки</td>
+            <td>Название товара</td>
+            <td>Производитель</td>
+            <td>Цена</td>
+        </tr>
+        @foreach (var order in Model)
+        {
+            <tr>
+                <td>@order.Time</td>
+                <td>@order.ClientName</td>
+                <td>@order.ContactPhone</td>
+                <td>@order.DeliveryAddress</td>
+                <td>@order.ProductName</td>
+                <td>@order.ProductCompany</td>
+                <td>@order.ProductCost</td>
+
+            </tr>
+        }
+    </table>
+}
+else
+{
+    <td>Нет созданных рейсов</td>
+}
+<div>
+    <a class="nav-link text-dark" asp-area="" asp-controller="Order" asp-action="Create">Создать рейс</a>
+</div>
