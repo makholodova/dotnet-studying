@@ -1,0 +1,39 @@
+﻿@model ClientModel
+
+@{
+    ViewData["Title"] = "Изменить данные клиента";
+}
+
+<div>
+    <h3>Форма изменения данных клиента</h3>
+    <p>Для изменения данных заполните следующие поля:</p>
+    <form method="post">
+        <table>
+            <tr>
+                <td>Изменить имя:</td>
+                <td>
+
+                    <input type="text" name="Name" value="@Model.Name"/>
+                </td>
+            </tr>
+            <tr>
+                <td>Изменить телефон:</td>
+                <td>
+                    <input type="text" name="ContactPhonee" value="@Model.ContactPhone"/>
+                </td>
+            </tr>
+            <tr>
+                <td>Изменить адрес:</td>
+                <td>
+                    <input type="text" name="Address" value="@Model.Address"/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="submit" value="Сохранить"/>
+                </td><td></td>
+            </tr>
+        </table>
+    </form>
+
+</div>

@@ -1,0 +1,51 @@
+﻿@model ProductModel
+
+@{
+    ViewData["Title"] = "Изменить данные продукта";
+}
+
+<div>
+    <h3>Форма изменения данных продукта</h3>
+    <p>Для изменения данных заполните следующие поля:</p>
+    <form method="post">
+        <table>
+            <tr>
+                <td>Изменить название:</td>
+                <td>
+
+                    <input type="text" name="Name" value="@Model.Name"/>
+                </td>
+            </tr>
+            <tr>
+                <td>Изменить количество остатка:</td>
+                <td>
+                    <input type="text" name="Quantity" value="@Model.Quantity"/>
+                </td>
+            </tr>
+            <tr>
+                <td>Изменить производителя:</td>
+                <td>
+                    <input type="text" name="Company" alue="@Model.Company"/>
+                </td>
+            </tr>
+            <tr>
+                <td>В наличии:</td>
+                <td>
+                    <input type="text" name="InStock" alue="@Model.InStock"/>
+                </td>
+            </tr>
+            <tr>
+                <td>Цена:</td>
+                <td>
+                    <input type="text" name="Cost" alue="@Model.Cost"/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="submit" value="Сохранить"/>
+                </td><td></td>
+            </tr>
+        </table>
+    </form>
+
+</div>

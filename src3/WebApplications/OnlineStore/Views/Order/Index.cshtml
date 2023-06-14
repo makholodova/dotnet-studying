@@ -29,13 +29,19 @@
                 <td>@order.ProductCost</td>
 
             </tr>
+            <td>
+                <a class="nav-link text-dark" asp-area="" asp-controller="Order" asp-action="Update" asp-route-id="@order.Id">Редактировать</a>
+            </td>
+            <td>
+                <a class="nav-link text-dark" asp-area="" asp-controller="Order" asp-action="Delete" asp-route-id="@order.Id">Удалить</a>
+            </td>
         }
     </table>
 }
 else
 {
-    <td>Нет созданных рейсов</td>
+    <td>Нет созданных заказов</td>
 }
 <div>
-    <a class="nav-link text-dark" asp-area="" asp-controller="Order" asp-action="Create">Создать рейс</a>
+    <a class="nav-link text-dark" asp-area="" asp-controller="Order" asp-action="Create">Создать звказ</a>
 </div>

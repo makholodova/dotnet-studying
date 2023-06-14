@@ -25,7 +25,7 @@
             <tr>
                 <td>Водитель:</td>
                 <td>
-                    <select id="DriverId" name="DriverId">
+                    <select asp-for="DriverId" >
                         @foreach (var driver in Model.Drivers)
                         {
                             @if (driver.IsWork)
@@ -39,7 +39,7 @@
             <tr>
                 <td>Автомобиль:</td>
                 <td>
-                    <select id="CarId" name="CarId">
+                    <select asp-for="CarId">
                         @foreach (var car in Model.Cars)
                         {
                             @if (car.IsWork)

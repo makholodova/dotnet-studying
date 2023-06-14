@@ -1,0 +1,47 @@
+﻿@model OderUpdateModelGet
+
+@{
+    ViewData["Title"] = "Изменить данные заказа";
+}
+<div>
+    <h3>Форма изменения данных заказа</h3>
+    <p>Для изменения данных заполните следующие поля:</p>
+    <form method="post">
+        <table>
+            <tr>
+                <td>Время заказа:</td>
+                <td>
+                    <input type="text" name="Time" value="@Model.Time"/>
+                </td>
+            </tr>
+            <tr>
+            <td>Имя клиента:</td>
+            <td>
+                <select asp-for="ClientId">
+                    @foreach (var client in Model.Clients)
+                    {
+                        <option value="@client.Id">@client.Name</option>
+                    }
+                </select>
+            </td>
+
+            <tr>
+                <td>Название товара:</td>
+                <td>
+                    <select asp-for="ProductId">
+                        @foreach (var product in Model.Products)
+                        {
+                            <option value="@product.Id">@product.Name</option>
+                        }
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="submit" value="Сохранить"/>
+                </td><td></td>
+            </tr>
+        </table>
+    </form>
+
+</div>

@@ -27,6 +27,12 @@
                     <td>@product.InStock </td>
                     <td>@product.Cost </td>
                 </tr>
+                <td>
+                    <a class="nav-link text-dark" asp-area="" asp-controller="Product" asp-action="Update" asp-route-id="@product.Id">Редактировать</a>
+                </td>
+                <td>
+                    <a class="nav-link text-dark" asp-area="" asp-controller="Product" asp-action="Delete" asp-route-id="@product.Id">Удалить</a>
+                </td>
             }
         </table>
     }
