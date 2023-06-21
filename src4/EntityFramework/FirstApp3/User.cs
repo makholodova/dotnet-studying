@@ -1,4 +1,6 @@
-﻿namespace FirstApp3;
+﻿using System.ComponentModel.DataAnnotations.Schema;
+
+namespace FirstApp3;
 
 public class User
 {
@@ -7,4 +9,6 @@ public class User
 	public int Age { get; set; }
 	// навигационное свойство
 	public Company? Company { get; set; }
+	/*[NotMapped]*/ //исключить определенное свойство, чтобы для него не создавался столбец в таблице (Аннотации)
+	public string? Address { get; set; }
 }
