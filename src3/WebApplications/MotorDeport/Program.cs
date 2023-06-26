@@ -1,3 +1,6 @@
+using MotorDeport.DataBase;
+using MotorDeport.DataBase.Configs;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -23,5 +26,9 @@ app.UseAuthorization();
 app.MapControllerRoute(
 	name: "default",
 	pattern: "{controller=Trip}/{action=Index}/{id?}");
+
+var context = new MotorDeportContext();
+context.Database.EnsureDeleted();
+context.Database.EnsureCreated();
 
 app.Run();

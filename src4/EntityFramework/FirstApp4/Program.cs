@@ -18,3 +18,9 @@ using (ApplicationContext db = new ApplicationContext())
 	foreach(var user in users)
 		Console.WriteLine($"{user.Name} - {user.Age}");
 }
+
+Messenger<Message, Person> telegram = new Messenger<Message, Person>();
+Person tom1 = new Person("Tom");
+Person bob1 = new Person("Bob");
+Message hello = new Message("Hello, Bob!");
+telegram.SendMessage(tom1, bob1, hello);

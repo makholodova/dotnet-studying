@@ -2,6 +2,10 @@
 
 public class Car
 {
+	private Car()
+	{
+	}
+
 	public Car(bool isWork, string model, int number, Guid id)
 	{
 		IsWork = isWork;

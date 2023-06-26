@@ -2,6 +2,10 @@
 
 public class Driver
 {
+	private Driver()
+	{
+	}
+	
 	public Driver(string name, bool isWork, Guid id)
 	{
 		Name = name;
