@@ -8,14 +8,15 @@ public class CarController : Controller
 {
 	public IActionResult Index()
 	{
+		using var context = new MotorDeportContext();
 		var cars = new List<CarModel>();
-		foreach (var car in MotorDeportDb.Cars)
+		foreach (var car in context.Car)
 		{
 			var carModel = ConvertToCarModel(car);
 			cars.Add(carModel);
 		}
 
-		return View(cars);
+		return this.View(cars);
 	}
 
 	private static CarModel ConvertToCarModel(Car car)
@@ -29,29 +30,43 @@ public class CarController : Controller
 	[HttpGet]
 	public IActionResult Create()
 	{
-		return View();
+		return this.View();
 	}
 
 	[HttpPost]
 	public IActionResult Create(CarModel car)
 	{
-		MotorDeportDb.Cars.Add(new Car(true, car.Model, car.Number, Guid.NewGuid()));
-		return RedirectToAction("Index");
+		using var context = new MotorDeportContext();
+		context.Car.Add(new Car(true, car.Model, car.Number, Guid.NewGuid()));
+		context.SaveChanges();
+
+		return this.RedirectToAction("Index");
 	}
 
 	[HttpGet]
 	public IActionResult Delete(Guid id)
 	{
-		MotorDeportDb.Cars.RemoveAll(car => car.Id == id);
-		return RedirectToAction("Index");
+		using var context = new MotorDeportContext();
+		var car = context.Car.FirstOrDefault(x => x.Id == id);
+		if (car == null) return this.RedirectToAction("Index");
+
+		context.Car.Remove(car);
+		context.SaveChanges();
+
+		return this.RedirectToAction("Index");
 	}
 
 	[HttpGet]
 	public IActionResult PutOnRepair(Guid id)
 	{
-		var car = MotorDeportDb.Cars.First(car => car.Id == id);
+		using var context = new MotorDeportContext();
+		var car = context.Car.FirstOrDefault(x => x.Id == id);
+		if (car == null) return this.RedirectToAction("Index");
+
 		car.IsWork = false;
-		return RedirectToAction("Index");
+		context.SaveChanges();
+
+		return this.RedirectToAction("Index");
 	}
 
 	[HttpGet]
@@ -59,7 +74,7 @@ public class CarController : Controller
 	{
 		var car = MotorDeportDb.Cars.First(car => car.Id == id);
 		car.IsWork = true;
-		return RedirectToAction("Index");
+		return this.RedirectToAction("Index");
 	}
 
 	[HttpGet]
@@ -67,7 +82,7 @@ public class CarController : Controller
 	{
 		var car = MotorDeportDb.Cars.First(car => car.Id == id);
 		var carModel = ConvertToCarModel(car);
-		return View(carModel);
+		return this.View(carModel);
 	}
 
 	[HttpPost]
@@ -76,6 +91,6 @@ public class CarController : Controller
 		var carDb = MotorDeportDb.Cars.First(carDb => carDb.Id == car.Id);
 		carDb.Number = car.Number;
 		carDb.IsWork = car.IsWork;
-		return RedirectToAction("Index");
+		return this.RedirectToAction("Index");
 	}
 }
