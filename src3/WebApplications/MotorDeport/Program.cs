@@ -1,7 +1,12 @@
+using Microsoft.EntityFrameworkCore;
 using MotorDeport.DataBase;
 using MotorDeport.DataBase.Configs;
 
 var builder = WebApplication.CreateBuilder(args);
+
+//var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+//builder.Services.AddDbContext<MotorDeportContext>(options =>
+//	options.UseSqlServer(@"Server=.\SQLEXPRESS;Database=MotorDeport;Trusted_Connection=True;TrustServerCertificate=True;"));
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
@@ -24,11 +29,14 @@ app.UseRouting();
 app.UseAuthorization();
 
 app.MapControllerRoute(
-	name: "default",
-	pattern: "{controller=Trip}/{action=Index}/{id?}");
+	"default",
+	"{controller=Trip}/{action=Index}/{id?}");
 
-var context = new MotorDeportContext();
-context.Database.EnsureDeleted();
-context.Database.EnsureCreated();
+using (var context = new MotorDeportContext())
+{
+	//context.Database.EnsureDeleted();
+	//context.Database.EnsureCreated();
+}
+
 
 app.Run();

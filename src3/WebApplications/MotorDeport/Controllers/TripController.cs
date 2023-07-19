@@ -8,26 +8,29 @@ public class TripController : Controller
 {
 	public IActionResult Index()
 	{
+		using var context = new MotorDeportContext();
 		var trips = new List<TripIndexModel>();
-		foreach (var dbTrip in MotorDeportDb.Trips)
+		foreach (var dbTrip in context.Trip)
 		{
 			var tripModel = ConvertToTripModel(dbTrip);
 			trips.Add(tripModel);
 		}
 
-		return View(trips);
+		return this.View(trips);
 	}
 
 	private static TripIndexModel ConvertToTripModel(Trip dbTrip)
 	{
-		var tripCar = MotorDeportDb.Cars.First(car => car.Id == dbTrip.CarId);
+		//using var context = new MotorDeportContext();
+		
+		//var tripCar = context.Car.First(car => car.Id == dbTrip.CarId);
 		var tripModel = new TripIndexModel
 		{
 			Time = dbTrip.Time,
 			Route = dbTrip.Route,
-			DriverName = MotorDeportDb.Drivers.First(driver => driver.Id == dbTrip.DriverId).Name,
-			ModelCar = tripCar.Model,
-			NumberCar = tripCar.Number,
+			DriverName = dbTrip.Driver.Name,//context.Driver.First(driver => driver.Id == dbTrip.DriverId).Name,
+			ModelCar = dbTrip.Car.Model,
+			NumberCar = dbTrip.Car.Number,
 			Id = dbTrip.Id
 		};
 		return tripModel;
@@ -36,37 +39,43 @@ public class TripController : Controller
 	[HttpGet]
 	public IActionResult Create()
 	{
+		using var context = new MotorDeportContext();
 		var tripModelGet = new TripCreateModelGet();
-		tripModelGet.Drivers = MotorDeportDb.Drivers.Select(x => new DriverModel
+		tripModelGet.Drivers = context.Driver.Select(x => new DriverModel
 			{ Id = x.Id, IsWork = x.IsWork, Name = x.Name }).ToList();
-		tripModelGet.Cars = MotorDeportDb.Cars.Select(x => new CarModel
+		tripModelGet.Cars = context.Car.Select(x => new CarModel
 			{ Id = x.Id, IsWork = x.IsWork, Model = x.Model, Number = x.Number }).ToList();
-		return View(tripModelGet);
+		return this.View(tripModelGet);
 	}
 
 	[HttpPost]
 	public IActionResult Create(TripCreateModelPost tripCreate)
 	{
-		MotorDeportDb.Trips.Add(new Trip(tripCreate.Time, tripCreate.Route, Guid.NewGuid(), tripCreate.DriverId,
+		using var context = new MotorDeportContext();
+		context.Trip.Add(new Trip(tripCreate.Time, tripCreate.Route, Guid.NewGuid(), tripCreate.DriverId,
 			tripCreate.CarId));
-
-		return RedirectToAction("Index");
+		context.SaveChanges();
+		return this.RedirectToAction("Index");
 	}
 
 	public IActionResult Delete(Guid id)
 	{
-		var trip = MotorDeportDb.Trips.First(trip => trip.Id == id);
-		MotorDeportDb.Trips.Remove(trip);
-		return RedirectToAction("Index");
+		using var context = new MotorDeportContext();
+		var trip = context.Trip.First(trip => trip.Id == id);
+		context.Trip.Remove(trip);
+		context.SaveChanges();
+		return this.RedirectToAction("Index");
 	}
 
 	[HttpGet]
 	public IActionResult Update(Guid id)
 	{
-		var trip = MotorDeportDb.Trips.First(trip => trip.Id == id);
-		var drivers = MotorDeportDb.Drivers.Select(x =>
+		using var context = new MotorDeportContext();
+		var trip = context.Trip.First(trip => trip.Id == id);
+		var drivers = context.Driver.Select(x =>
 			new DriverModel { Id = x.Id, IsWork = x.IsWork, Name = x.Name }).ToList();
-		var cars = MotorDeportDb.Cars.Select(x =>
+
+		var cars = context.Car.Select(x =>
 			new CarModel { IsWork = x.IsWork, Model = x.Model, Number = x.Number, Id = x.Id }).ToList();
 
 		var tripUpdateModelGet = new TripUpdateModelGet
@@ -79,18 +88,19 @@ public class TripController : Controller
 			DriverId = trip.DriverId,
 			CarId = trip.CarId
 		};
-		return View(tripUpdateModelGet);
+		return this.View(tripUpdateModelGet);
 	}
 
 	[HttpPost]
 	public IActionResult Update(TripUpdateModelPost trip)
 	{
-		var tripDb = MotorDeportDb.Trips.First(tripDb => tripDb.Id == trip.Id);
+		using var context = new MotorDeportContext();
+		var tripDb = context.Trip.First(tripDb => tripDb.Id == trip.Id);
 		tripDb.Route = trip.Route;
 		tripDb.Time = trip.Time;
 		tripDb.CarId = trip.CarId;
 		tripDb.DriverId = trip.DriverId;
-
-		return RedirectToAction("Index");
+		context.SaveChanges();
+		return this.RedirectToAction("Index");
 	}
 }

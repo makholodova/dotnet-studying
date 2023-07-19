@@ -21,7 +21,9 @@ public class CarController : Controller
 
 	private static CarModel ConvertToCarModel(Car car)
 	{
-		var isOnTrip = MotorDeportDb.Trips.Any(trip => trip.CarId == car.Id);
+		//using var context = new MotorDeportContext();
+		//var isOnTrip = context.Trip.Any(trip => trip.CarId == car.Id);
+		var isOnTrip = car.Trips.Any();
 		var carModel = new CarModel
 			{ Id = car.Id, Model = car.Model, Number = car.Number, IsWork = car.IsWork, IsOnTrip = isOnTrip };
 		return carModel;
@@ -39,7 +41,6 @@ public class CarController : Controller
 		using var context = new MotorDeportContext();
 		context.Car.Add(new Car(true, car.Model, car.Number, Guid.NewGuid()));
 		context.SaveChanges();
-
 		return this.RedirectToAction("Index");
 	}
 
@@ -49,7 +50,6 @@ public class CarController : Controller
 		using var context = new MotorDeportContext();
 		var car = context.Car.FirstOrDefault(x => x.Id == id);
 		if (car == null) return this.RedirectToAction("Index");
-
 		context.Car.Remove(car);
 		context.SaveChanges();
 
@@ -62,7 +62,6 @@ public class CarController : Controller
 		using var context = new MotorDeportContext();
 		var car = context.Car.FirstOrDefault(x => x.Id == id);
 		if (car == null) return this.RedirectToAction("Index");
-
 		car.IsWork = false;
 		context.SaveChanges();
 
@@ -72,15 +71,19 @@ public class CarController : Controller
 	[HttpGet]
 	public IActionResult RemoveFromRepair(Guid id)
 	{
-		var car = MotorDeportDb.Cars.First(car => car.Id == id);
+		using var context = new MotorDeportContext();
+		var car = context.Car.FirstOrDefault(x => x.Id == id);
+		if (car == null) return this.RedirectToAction("Index");
 		car.IsWork = true;
+		context.SaveChanges();
 		return this.RedirectToAction("Index");
 	}
 
 	[HttpGet]
 	public IActionResult Update(Guid id)
 	{
-		var car = MotorDeportDb.Cars.First(car => car.Id == id);
+		using var context = new MotorDeportContext();
+		var car = context.Car.FirstOrDefault(car => car.Id == id);
 		var carModel = ConvertToCarModel(car);
 		return this.View(carModel);
 	}
@@ -88,9 +91,12 @@ public class CarController : Controller
 	[HttpPost]
 	public IActionResult Update(CarModel car)
 	{
-		var carDb = MotorDeportDb.Cars.First(carDb => carDb.Id == car.Id);
+		using var context = new MotorDeportContext();
+		var carDb = context.Car.FirstOrDefault(carDb => carDb.Id == car.Id);
+		if (carDb == null) return this.RedirectToAction("Index");
 		carDb.Number = car.Number;
 		carDb.IsWork = car.IsWork;
+		context.SaveChanges();
 		return this.RedirectToAction("Index");
 	}
 }

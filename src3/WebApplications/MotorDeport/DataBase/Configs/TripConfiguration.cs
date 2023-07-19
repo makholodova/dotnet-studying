@@ -12,5 +12,7 @@ public class TripConfiguration : IEntityTypeConfiguration<Trip>
 		builder.Property(p => p.Time).IsRequired();
 		builder.HasOne(p => p.Car).WithMany(x => x.Trips).HasForeignKey(x => x.CarId);
 		builder.HasOne(p => p.Driver).WithMany(x => x.Trips).HasForeignKey(x => x.DriverId);
+		builder.HasOne(p => p.FromCity).WithMany(x => x.FromTrips).HasForeignKey(x => x.FromCityId).OnDelete(DeleteBehavior.NoAction);
+		builder.HasOne(p => p.ToCity).WithMany(x => x.ToTrips).HasForeignKey(x => x.ToCityId).OnDelete(DeleteBehavior.NoAction);
 	}
 }
