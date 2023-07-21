@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using MotorDeport.DataBase;
 using MotorDeport.DataBase.Configs;
+using MotorDeport.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,6 +12,12 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
+builder.Services.AddTransient<ICarService, CarService>();
+builder.Services.AddTransient<IDriverService, DriverService>();
+builder.Services.AddTransient<ICityService, CityService>();
+builder.Services.AddTransient<ITripService, TripService>();
+
+////---------------------------------------------------------
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

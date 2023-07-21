@@ -7,10 +7,16 @@ namespace MotorDeport.Controllers;
 
 public class DriverController : Controller
 {
+	private readonly IDriverService _driverService;
+
+	public DriverController(IDriverService driverService)
+	{
+		this._driverService = driverService;
+	}
+
 	public IActionResult Index()
 	{
-		var driverService = new DriverService();
-		var drivers = driverService.GetAllDrivers().ToList();
+		var drivers = this._driverService.GetAllDrivers().ToList();
 		return this.View(drivers);
 	}
 
@@ -23,48 +29,42 @@ public class DriverController : Controller
 	[HttpPost]
 	public IActionResult Create(DriverModel driver)
 	{
-		var driverService = new DriverService();
-		driverService.CreateDriver(driver);
+		this._driverService.CreateDriver(driver);
 		return this.RedirectToAction("Index");
 	}
 
 	[HttpGet]
 	public IActionResult Delete(Guid id)
 	{
-		var driverService = new DriverService();
-		driverService.DeleteDriver(id);
+		this._driverService.DeleteDriver(id);
 		return this.RedirectToAction("Index");
 	}
 
 	[HttpGet]
 	public IActionResult Work(Guid id)
 	{
-		var driverService = new DriverService();
-		driverService.ChangeWork(id, true);
+		this._driverService.ChangeWork(id, true);
 		return this.RedirectToAction("Index");
 	}
 
 	[HttpGet]
 	public IActionResult NotWork(Guid id)
 	{
-		var driverService = new DriverService();
-		driverService.ChangeWork(id, false);
+		this._driverService.ChangeWork(id, false);
 		return this.RedirectToAction("Index");
 	}
 
 	[HttpGet]
 	public IActionResult Update(Guid id)
 	{
-		var driverService = new DriverService();
-		var driverModel = driverService.GetDriverById(id);
+		var driverModel = this._driverService.GetDriverById(id);
 		return this.View(driverModel);
 	}
 
 	[HttpPost]
 	public IActionResult Update(DriverModel driver)
 	{
-		var driverService = new DriverService();
-		driverService.UpdateDriver(driver);
+		this._driverService.UpdateDriver(driver);
 		return this.RedirectToAction("Index");
 	}
 }

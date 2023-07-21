@@ -7,25 +7,34 @@ namespace MotorDeport.Controllers;
 
 public class TripController : Controller
 {
+	private readonly ITripService _tripService;
+	private readonly ICarService _carService;
+	private readonly IDriverService _driverService;
+	private readonly ICityService _cityService;
+
+	public TripController(ITripService tripService, ICarService carService, IDriverService driverService, ICityService cityService)
+	{
+		this._tripService = tripService;
+		this._carService = carService;
+		this._driverService = driverService;
+		this._cityService = cityService;
+	}
+
+
 	public IActionResult Index()
 	{
-		var tripService = new TripService();
-		var trips = tripService.GetAllTrips();
+		var trips = this._tripService.GetAllTrips();
 		return this.View(trips);
 	}
 
 	[HttpGet]
 	public IActionResult Create()
 	{
-		var carService = new CarService();
-		var driverService = new DriverService();
-		var cityService = new CityService();
-		
 		var tripModelGet = new TripCreateModelGet();
 
-		tripModelGet.Cars = carService.GetAvailableCars();
-		tripModelGet.Drivers = driverService.GetAvailableDrivers();
-		tripModelGet.Cities = cityService.GetAvailableCities();
+		tripModelGet.Cars = this._carService.GetAvailableCars();
+		tripModelGet.Drivers = this._driverService.GetAvailableDrivers();
+		tripModelGet.Cities = this._cityService.GetAvailableCities();
 
 		return this.View(tripModelGet);
 	}
@@ -33,41 +42,33 @@ public class TripController : Controller
 	[HttpPost]
 	public IActionResult Create(TripCreateModel tripCreate)
 	{
-		var tripService = new TripService();
-		tripService.CreateTrip(tripCreate);
+		this._tripService.CreateTrip(tripCreate);
 		return this.RedirectToAction("Index");
 	}
 
 	public IActionResult Delete(Guid id)
 	{
-		var tripService = new TripService();
-		tripService.DeleteTrip(id);
+		this._tripService.DeleteTrip(id);
 		return this.RedirectToAction("Index");
 	}
 
 	[HttpGet]
 	public IActionResult Update(Guid id)
 	{
-		var carService = new CarService();
-		var driverService = new DriverService();
-		var cityService = new CityService();
-		var tripService = new TripService();
-
 		var tripModelGet = new TripUpdateModelGet();
-		
-		tripModelGet.Trip = tripService.GetTripById(id);
-		tripModelGet.Cars = carService.GetAvailableCars();
-		tripModelGet.Drivers = driverService.GetAvailableDrivers(); 
-		tripModelGet.Cities = cityService.GetAvailableCities(); 
-		
+
+		tripModelGet.Trip = this._tripService.GetTripById(id);
+		tripModelGet.Cars = this._carService.GetAvailableCars();
+		tripModelGet.Drivers = this._driverService.GetAvailableDrivers();
+		tripModelGet.Cities = this._cityService.GetAvailableCities();
+
 		return this.View(tripModelGet);
 	}
 
 	[HttpPost]
 	public IActionResult Update(TripUpdateModel trip)
 	{
-		var tripService = new TripService();
-		tripService.UpdateTrip(trip);
+		this._tripService.UpdateTrip(trip);
 		return this.RedirectToAction("Index");
 	}
 }

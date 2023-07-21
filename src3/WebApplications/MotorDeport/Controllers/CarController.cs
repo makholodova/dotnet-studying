@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using MotorDeport.DataBase;
 using MotorDeport.Models;
 using MotorDeport.Services;
 
@@ -7,10 +6,16 @@ namespace MotorDeport.Controllers;
 
 public class CarController : Controller
 {
+	private readonly ICarService _carService;
+
+	public CarController(ICarService carService)
+	{
+		this._carService = carService;
+	}
+
 	public IActionResult Index()
 	{
-		var carService = new CarService();
-		var cars = carService.GetAllCars();
+		var cars = this._carService.GetAllCars();
 		return this.View(cars);
 	}
 
@@ -21,50 +26,44 @@ public class CarController : Controller
 	}
 
 	[HttpPost]
-	public IActionResult Create(CarModel car) 
+	public IActionResult Create(CarModel car)
 	{
-		var carService = new CarService();
-		carService.CreateCar(car);
+		this._carService.CreateCar(car);
 		return this.RedirectToAction("Index");
 	}
 
 	[HttpGet]
 	public IActionResult Delete(Guid id)
 	{
-		var carService = new CarService();
-		carService.DeleteCar(id);
+		this._carService.DeleteCar(id);
 		return this.RedirectToAction("Index");
 	}
 
 	[HttpGet]
 	public IActionResult PutOnRepair(Guid id)
 	{
-		var carService = new CarService();
-		carService.ChangeOfRepair(id, false);
+		this._carService.ChangeOfRepair(id, false);
 		return this.RedirectToAction("Index");
 	}
 
 	[HttpGet]
 	public IActionResult RemoveFromRepair(Guid id)
 	{
-		var carService = new CarService();
-		carService.ChangeOfRepair(id, true);
+		this._carService.ChangeOfRepair(id, true);
 		return this.RedirectToAction("Index");
 	}
 
 	[HttpGet]
 	public IActionResult Update(Guid id)
 	{
-		var carService = new CarService();
-		var carModel = carService.GetCarById(id);
+		var carModel = this._carService.GetCarById(id);
 		return this.View(carModel);
 	}
 
 	[HttpPost]
 	public IActionResult Update(CarModel car)
 	{
-		var carService = new CarService();
-		carService.UpdateCar(car);
+		this._carService.UpdateCar(car);
 		return this.RedirectToAction("Index");
 	}
 }

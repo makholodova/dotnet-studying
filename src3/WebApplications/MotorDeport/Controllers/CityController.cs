@@ -7,18 +7,23 @@ namespace MotorDeport.Controllers;
 
 public class CityController : Controller
 {
+	private readonly ICityService _cityService;
+
+	public CityController(ICityService cityService)
+	{
+		this._cityService = cityService;
+	}
+
 	public IActionResult Index()
 	{
-		var cityService = new CityService();
-		var cities = cityService.GetAllCities();
+		var cities = this._cityService.GetAllCities();
 		return this.View(cities);
 	}
 
 
 	public IActionResult Delete(Guid id)
 	{
-		var cityService = new CityService();
-		cityService.DeleteCity(id);
+		this._cityService.DeleteCity(id);
 		return this.RedirectToAction("Index");
 	}
 
@@ -31,8 +36,7 @@ public class CityController : Controller
 	[HttpPost]
 	public IActionResult Create(CityModel city)
 	{
-		var cityService = new CityService();
-		cityService.CreateCity(city);
+		this._cityService.CreateCity(city);
 		return this.RedirectToAction("Index");
 	}
 }
