@@ -18,9 +18,9 @@ public class DriverService : IDriverService
 {
 	private readonly MotorDeportContext _context;
 
-	public DriverService(MotorDeportContext context = null)
+	public DriverService(MotorDeportContext context)
 	{
-		this._context = context ?? new MotorDeportContext();
+		this._context = context;
 	}
 
 	public List<DriverModel> GetAllDrivers()

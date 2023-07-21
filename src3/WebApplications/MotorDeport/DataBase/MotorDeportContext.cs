@@ -10,18 +10,17 @@ public class MotorDeportContext : DbContext
 	public DbSet<Trip> Trip { get; set; }
 	public DbSet<City> City { get; set; }
 
-	/*public MotorDeportContext(DbContextOptions<MotorDeportContext> options)
+	public MotorDeportContext(DbContextOptions<MotorDeportContext> options)
 		: base(options)
 	{
-		Database.EnsureCreated();   // создаем базу данных при первом обращении
-	}*/
-	
-	protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+	}
+
+	/*protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 	{
 		optionsBuilder
 			.UseLazyLoadingProxies()
 			.UseSqlServer(@"Server=.\SQLEXPRESS;Database=MotorDeport;Trusted_Connection=True;TrustServerCertificate=True;");
-	}
+	}*/
 
 	protected override void OnModelCreating(ModelBuilder modelBuilder)
 	{

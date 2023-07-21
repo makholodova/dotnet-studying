@@ -16,9 +16,9 @@ public class TripService : ITripService
 {
 	private readonly MotorDeportContext _context;
 
-	public TripService(MotorDeportContext context = null)
+	public TripService(MotorDeportContext context)
 	{
-		this._context = context ?? new MotorDeportContext();
+		this._context = context;
 	}
 
 	public List<TripIndexModel> GetAllTrips()

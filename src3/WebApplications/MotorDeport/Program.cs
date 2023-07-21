@@ -1,16 +1,18 @@
 using Microsoft.EntityFrameworkCore;
 using MotorDeport.DataBase;
-using MotorDeport.DataBase.Configs;
 using MotorDeport.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
-//var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
-//builder.Services.AddDbContext<MotorDeportContext>(options =>
-//	options.UseSqlServer(@"Server=.\SQLEXPRESS;Database=MotorDeport;Trusted_Connection=True;TrustServerCertificate=True;"));
-
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+// DIMA: Register our custom services in dependency injection (DI)
+var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+builder.Services.AddDbContext<MotorDeportContext>(options =>
+	options
+		.UseLazyLoadingProxies()
+		.UseSqlServer(connectionString));
 
 builder.Services.AddTransient<ICarService, CarService>();
 builder.Services.AddTransient<IDriverService, DriverService>();
@@ -39,11 +41,12 @@ app.MapControllerRoute(
 	"default",
 	"{controller=Trip}/{action=Index}/{id?}");
 
-using (var context = new MotorDeportContext())
+using (var scope = app.Services.CreateScope())
+using (var context = scope.ServiceProvider.GetService<MotorDeportContext>())
 {
+	context.Database.Migrate();
 	//context.Database.EnsureDeleted();
 	//context.Database.EnsureCreated();
 }
-
 
 app.Run();

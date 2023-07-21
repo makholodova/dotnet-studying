@@ -15,9 +15,9 @@ public class CityService : ICityService
 {
 	private readonly MotorDeportContext _context;
 
-	public CityService(MotorDeportContext context = null)
+	public CityService(MotorDeportContext context)
 	{
-		this._context = context ?? new MotorDeportContext();
+		this._context = context;
 	}
 
 	public List<CityModel> GetAllCities() 

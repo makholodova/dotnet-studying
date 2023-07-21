@@ -18,9 +18,9 @@ public class CarService : ICarService
 {
 	private readonly MotorDeportContext _context;
 
-	public CarService(MotorDeportContext context = null)
+	public CarService(MotorDeportContext context)
 	{
-		this._context = context ?? new MotorDeportContext();
+		this._context = context;
 	}
 
 	public List<CarModel> GetAllCars()
