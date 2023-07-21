@@ -1,6 +1,7 @@
-﻿@model TripCreateModelGet
+﻿@using MotorDeport.DataBase
+@model TripCreateModelGet
 @{
-    ViewData["Title"] = "Оформления рейса";
+    ViewData["Title"] = "Оформление рейса";
 }
 
 <div>
@@ -9,11 +10,27 @@
     <form method="post">
         <table>
             <tr>
-                <td>Направление:</td>
+                <td>Откуда:</td>
                 <td>
-
-                    <input type="text" name="Route"/>
+                    <select id="FromCityId" name="FromCityId">
+                        @foreach (var city in Model.Cities)
+                        {
+                            <option value="@city.Id">@city.Name</option>
+                        }
+                    </select>
                 </td>
+            </tr>
+            <tr>
+                <td>Куда:</td>
+                <td>
+                    <select id="ToCityId" name="ToCityId">
+                        @foreach (var city in Model.Cities)
+                        {
+                            <option value="@city.Id">@city.Name</option>
+                        }
+                    </select>
+                </td>
+
             </tr>
             <tr>
                 <td>Время:</td>
@@ -27,10 +44,7 @@
                     <select id="DriverId" name="DriverId">
                         @foreach (var driver in Model.Drivers)
                         {
-                            @if (driver.IsWork)
-                            {
-                                <option value="@driver.Id">@driver.Name</option>
-                            }
+                            <option value="@driver.Id">@driver.Name</option>
                         }
                     </select>
                 </td>
@@ -41,15 +55,11 @@
                     <select id="CarId" name="CarId">
                         @foreach (var car in Model.Cars)
                         {
-                            @if (car.IsWork)
-                            {
-                                <option value="@car.Id">@car.Model</option>
-                            }
+                            <option value="@car.Id">@car.Model</option>
                         }
                     </select>
                 </td>
             </tr>
-
             <tr>
                 <td>
                     <input type="submit" value="Создать"/>

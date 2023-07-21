@@ -2,11 +2,8 @@
 
 public class TripUpdateModelGet
 {
-	public List<DriverModel> Drivers { get; set; }
-	public List<CarModel> Cars { get; set; }
-	public DateTime Time { get; set; }
-	public string Route { get; set; }
-	public Guid Id { get; set; }
-	public Guid DriverId { get; set; }
-	public Guid CarId { get; set; }
+	public TripModel Trip { get; set; }
+	public List<CarShortInfoModel> Cars { get; set; }
+	public List<DriverShortInfoModel> Drivers { get; set; }
+	public List<CityShortInfoModel> Cities { get; set; }
 }

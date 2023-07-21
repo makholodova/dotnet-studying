@@ -2,6 +2,7 @@
 
 public class TripCreateModelGet
 {
-	public List<DriverModel> Drivers { get; set; }
-	public List<CarModel> Cars { get; set; }
+	public List<CarShortInfoModel> Cars { get; set; }
+	public List<DriverShortInfoModel> Drivers { get; set; }
+	public List<CityShortInfoModel> Cities { get; set; }
 }

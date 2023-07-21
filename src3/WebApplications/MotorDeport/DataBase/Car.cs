@@ -2,9 +2,9 @@
 
 public class Car
 {
-	/*private Car()
+	public Car()
 	{
-	}*/
+	}
 
 	public Car(bool isWork, string model, int number, Guid id)
 	{
@@ -18,5 +18,5 @@ public class Car
 	public string Model { get; set; }
 	public int Number { get; set; }
 	public Guid Id { get; set; }
-	public List<Trip> Trips { get; set; }
+	public virtual List<Trip> Trips { get; set; }
 }

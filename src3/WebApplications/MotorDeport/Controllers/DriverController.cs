@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using MotorDeport.DataBase;
 using MotorDeport.Models;
+using MotorDeport.Services;
 
 namespace MotorDeport.Controllers;
 
@@ -8,25 +9,9 @@ public class DriverController : Controller
 {
 	public IActionResult Index()
 	{
-		using var context = new MotorDeportContext();
-		var drivers = new List<DriverModel>();
-		foreach (var driver in context.Driver)
-		{
-			var driverModel = ConvertToDriverModel(driver);
-			drivers.Add(driverModel);
-		}
-
+		var driverService = new DriverService();
+		var drivers = driverService.GetAllDrivers().ToList();
 		return this.View(drivers);
-	}
-
-	private static DriverModel ConvertToDriverModel(Driver driver)
-	{
-		/*using var context = new MotorDeportContext();
-		var isOnTrip = context.Trip.Any(x => x.DriverId == driver.Id);*/
-		var isOnTrip = driver.Trips.Any();
-		var driverModel = new DriverModel
-			{ Name = driver.Name, Id = driver.Id, IsWork = driver.IsWork, IsOnTrip = isOnTrip };
-		return driverModel;
 	}
 
 	[HttpGet]
@@ -38,60 +23,48 @@ public class DriverController : Controller
 	[HttpPost]
 	public IActionResult Create(DriverModel driver)
 	{
-		using var context = new MotorDeportContext();
-		context.Driver.Add(new Driver(driver.Name, true, Guid.NewGuid()));
-		context.SaveChanges();
+		var driverService = new DriverService();
+		driverService.CreateDriver(driver);
 		return this.RedirectToAction("Index");
 	}
 
 	[HttpGet]
 	public IActionResult Delete(Guid id)
 	{
-		using var context = new MotorDeportContext();
-		var driver = context.Driver.FirstOrDefault(driver => driver.Id == id);
-		if (driver == null) return this.RedirectToAction("Index");
-		context.Driver.Remove(driver);
-		context.SaveChanges();
+		var driverService = new DriverService();
+		driverService.DeleteDriver(id);
 		return this.RedirectToAction("Index");
 	}
 
 	[HttpGet]
 	public IActionResult Work(Guid id)
 	{
-		using var context = new MotorDeportContext();
-		var driver = context.Driver.First(driver => driver.Id == id);
-		driver.IsWork = true;
-		context.SaveChanges();
+		var driverService = new DriverService();
+		driverService.ChangeWork(id, true);
 		return this.RedirectToAction("Index");
 	}
 
 	[HttpGet]
 	public IActionResult NotWork(Guid id)
 	{
-		using var context = new MotorDeportContext();
-		var driver = context.Driver.First(driver => driver.Id == id);
-		driver.IsWork = false;
-		context.SaveChanges();
+		var driverService = new DriverService();
+		driverService.ChangeWork(id, false);
 		return this.RedirectToAction("Index");
 	}
 
 	[HttpGet]
 	public IActionResult Update(Guid id)
 	{
-		using var context = new MotorDeportContext();
-		var driver = context.Driver.First(driver => driver.Id == id);
-		var driverModel = ConvertToDriverModel(driver);
+		var driverService = new DriverService();
+		var driverModel = driverService.GetDriverById(id);
 		return this.View(driverModel);
 	}
 
 	[HttpPost]
 	public IActionResult Update(DriverModel driver)
 	{
-		using var context = new MotorDeportContext();
-		var driverDb = context.Driver.First(driverDb => driverDb.Id == driver.Id);
-		driverDb.Name = driver.Name;
-		driverDb.IsWork = driver.IsWork;
-		context.SaveChanges();
+		var driverService = new DriverService();
+		driverService.UpdateDriver(driver);
 		return this.RedirectToAction("Index");
 	}
 }

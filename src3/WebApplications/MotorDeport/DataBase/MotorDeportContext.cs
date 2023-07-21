@@ -18,7 +18,9 @@ public class MotorDeportContext : DbContext
 	
 	protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 	{
-		optionsBuilder.UseSqlServer(@"Server=.\SQLEXPRESS;Database=MotorDeport;Trusted_Connection=True;TrustServerCertificate=True;");
+		optionsBuilder
+			.UseLazyLoadingProxies()
+			.UseSqlServer(@"Server=.\SQLEXPRESS;Database=MotorDeport;Trusted_Connection=True;TrustServerCertificate=True;");
 	}
 
 	protected override void OnModelCreating(ModelBuilder modelBuilder)

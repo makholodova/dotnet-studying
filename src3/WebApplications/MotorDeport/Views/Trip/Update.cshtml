@@ -10,28 +10,39 @@
     <form method="post">
         <table>
             <tr>
-                <td>Направление:</td>
+                <td>Откуда:</td>
                 <td>
 
-                    <input type="text" name="Route" value="@Model.Route"/>
+                    <select asp-for="Trip.FromCityId">
+                        @foreach (var city in Model.Cities)
+                        {
+                            <option value="@city.Id">@city.Name</option>
+                        }
+                    </select>
+                </td>
+                <td>Куда:</td>
+                <td>
+                    <select asp-for="Trip.ToCityId">
+                        @foreach (var city in Model.Cities)
+                        {
+                            <option value="@city.Id">@city.Name</option>
+                        }
+                    </select>
                 </td>
             </tr>
             <tr>
                 <td>Время:</td>
                 <td>
-                    <input type="text" name="Time" value="@Model.Time"/>
+                    <input type="text" name="Time" value="@Model.Trip.Time"/>
                 </td>
             </tr>
             <tr>
                 <td>Водитель:</td>
                 <td>
-                    <select asp-for="DriverId" >
+                    <select asp-for="Trip.DriverId">
                         @foreach (var driver in Model.Drivers)
                         {
-                            @if (driver.IsWork)
-                            {
-                                <option value="@driver.Id">@driver.Name</option>
-                            }
+                            <option value="@driver.Id">@driver.Name</option>
                         }
                     </select>
                 </td>
@@ -39,13 +50,10 @@
             <tr>
                 <td>Автомобиль:</td>
                 <td>
-                    <select asp-for="CarId">
+                    <select asp-for="Trip.CarId">
                         @foreach (var car in Model.Cars)
                         {
-                            @if (car.IsWork)
-                            {
-                                <option value="@car.Id">@car.Model</option>
-                            }
+                            <option value="@car.Id">@car.Model</option>
                         }
                     </select>
                 </td>

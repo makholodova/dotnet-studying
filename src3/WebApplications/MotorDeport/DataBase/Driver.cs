@@ -2,9 +2,9 @@
 
 public class Driver
 {
-	/*private Driver()
+	public Driver()
 	{
-	}*/
+	}
 
 	public Driver(string name, bool isWork, Guid id)
 	{
@@ -16,5 +16,5 @@ public class Driver
 	public string Name { get; set; }
 	public bool IsWork { get; set; }
 	public Guid Id { get; set; }
-	public List<Trip> Trips { get; set; }
+	public virtual List<Trip> Trips { get; set; }
 }

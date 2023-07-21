@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using MotorDeport.DataBase;
 using MotorDeport.Models;
+using MotorDeport.Services;
 
 namespace MotorDeport.Controllers;
 
@@ -8,25 +9,9 @@ public class CarController : Controller
 {
 	public IActionResult Index()
 	{
-		using var context = new MotorDeportContext();
-		var cars = new List<CarModel>();
-		foreach (var car in context.Car)
-		{
-			var carModel = ConvertToCarModel(car);
-			cars.Add(carModel);
-		}
-
+		var carService = new CarService();
+		var cars = carService.GetAllCars();
 		return this.View(cars);
-	}
-
-	private static CarModel ConvertToCarModel(Car car)
-	{
-		//using var context = new MotorDeportContext();
-		//var isOnTrip = context.Trip.Any(trip => trip.CarId == car.Id);
-		var isOnTrip = car.Trips.Any();
-		var carModel = new CarModel
-			{ Id = car.Id, Model = car.Model, Number = car.Number, IsWork = car.IsWork, IsOnTrip = isOnTrip };
-		return carModel;
 	}
 
 	[HttpGet]
@@ -36,67 +21,50 @@ public class CarController : Controller
 	}
 
 	[HttpPost]
-	public IActionResult Create(CarModel car)
+	public IActionResult Create(CarModel car) 
 	{
-		using var context = new MotorDeportContext();
-		context.Car.Add(new Car(true, car.Model, car.Number, Guid.NewGuid()));
-		context.SaveChanges();
+		var carService = new CarService();
+		carService.CreateCar(car);
 		return this.RedirectToAction("Index");
 	}
 
 	[HttpGet]
 	public IActionResult Delete(Guid id)
 	{
-		using var context = new MotorDeportContext();
-		var car = context.Car.FirstOrDefault(x => x.Id == id);
-		if (car == null) return this.RedirectToAction("Index");
-		context.Car.Remove(car);
-		context.SaveChanges();
-
+		var carService = new CarService();
+		carService.DeleteCar(id);
 		return this.RedirectToAction("Index");
 	}
 
 	[HttpGet]
 	public IActionResult PutOnRepair(Guid id)
 	{
-		using var context = new MotorDeportContext();
-		var car = context.Car.FirstOrDefault(x => x.Id == id);
-		if (car == null) return this.RedirectToAction("Index");
-		car.IsWork = false;
-		context.SaveChanges();
-
+		var carService = new CarService();
+		carService.ChangeOfRepair(id, false);
 		return this.RedirectToAction("Index");
 	}
 
 	[HttpGet]
 	public IActionResult RemoveFromRepair(Guid id)
 	{
-		using var context = new MotorDeportContext();
-		var car = context.Car.FirstOrDefault(x => x.Id == id);
-		if (car == null) return this.RedirectToAction("Index");
-		car.IsWork = true;
-		context.SaveChanges();
+		var carService = new CarService();
+		carService.ChangeOfRepair(id, true);
 		return this.RedirectToAction("Index");
 	}
 
 	[HttpGet]
 	public IActionResult Update(Guid id)
 	{
-		using var context = new MotorDeportContext();
-		var car = context.Car.FirstOrDefault(car => car.Id == id);
-		var carModel = ConvertToCarModel(car);
+		var carService = new CarService();
+		var carModel = carService.GetCarById(id);
 		return this.View(carModel);
 	}
 
 	[HttpPost]
 	public IActionResult Update(CarModel car)
 	{
-		using var context = new MotorDeportContext();
-		var carDb = context.Car.FirstOrDefault(carDb => carDb.Id == car.Id);
-		if (carDb == null) return this.RedirectToAction("Index");
-		carDb.Number = car.Number;
-		carDb.IsWork = car.IsWork;
-		context.SaveChanges();
+		var carService = new CarService();
+		carService.UpdateCar(car);
 		return this.RedirectToAction("Index");
 	}
 }
